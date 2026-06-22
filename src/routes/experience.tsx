@@ -14,6 +14,19 @@ export const Route = createFileRoute("/experience")({
 
 const roles = [
   {
+    icon: Code2,
+    title: "Professional Development Candidate",
+    period: "Capaciti GQ IT Hub",
+    bullets: [
+      "Developing and contributing to the full-stack architecture of the platform",
+      "Designing the implementation of AI-driven ticket classification logic",
+      "Supporting integration between the backend system and AI/NLP components",
+      "Building and maintaining features for ticket creation, tracking, and management",
+      "Collaborating with team members in an Agile-style development environment",
+      "Engaging in code reviews, debugging, and system testing",
+    ],
+  },
+  {
     icon: Briefcase,
     title: "Student Developer",
     period: "Academic & Independent Projects",
@@ -40,7 +53,7 @@ const roles = [
     title: "Technology Enthusiast & Independent Learner",
     period: "Ongoing",
     bullets: [
-      "Continuous learning of software development technologies",
+      "Title: "Continuous learning of software development technologies",
       "Building personal projects",
       "Exploring AI and machine learning applications",
     ],
