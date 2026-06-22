@@ -58,16 +58,16 @@ function ExperiencePage() {
       </div>
 
       <Section>
-        <div className="grid gap-6">
+        <div className="grid gap-5">
           {roles.map((r) => (
-            <article key={r.title} className="grid gap-6 rounded-2xl border border-border bg-card p-8 shadow-card md:grid-cols-[auto_1fr]">
+            <article key={r.title} className="grid gap-5 rounded-2xl border border-border bg-card p-6 shadow-card md:grid-cols-[auto_1fr]">
               <div className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-gradient-hero text-primary-foreground shadow-elevated">
                 <r.icon className="h-6 w-6" />
               </div>
               <div className="min-w-0">
                 <h3 className="text-xl font-semibold text-foreground">{r.title}</h3>
                 <p className="text-sm font-medium text-accent">{r.period}</p>
-                <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                <ul className="mt-3 grid gap-2 sm:grid-cols-2">
                   {r.bullets.map((b) => (
                     <li key={b} className="flex gap-3 text-sm text-muted-foreground">
                       <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{b}

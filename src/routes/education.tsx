@@ -44,7 +44,7 @@ function EducationPage() {
       </div>
 
       <Section eyebrow="Timeline" title="Academic Timeline">
-        <ol className="relative space-y-8 border-l-2 border-border pl-8 sm:pl-10">
+        <ol className="relative space-y-6 border-l-2 border-border pl-8 sm:pl-10">
           {timeline.map((t) => (
             <li key={t.year} className="relative">
               <span className="absolute -left-[42px] grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground shadow-elevated sm:-left-[50px]">
@@ -62,20 +62,20 @@ function EducationPage() {
       </Section>
 
       <section className="bg-secondary/40">
-        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-16 sm:px-6 md:grid-cols-2 lg:px-8">
-          <div className="rounded-2xl border border-border bg-card p-8 shadow-card">
+        <div className="mx-auto grid max-w-7xl gap-5 px-4 py-10 sm:px-6 md:grid-cols-2 lg:px-8">
+          <div className="rounded-2xl border border-border bg-card p-6 shadow-card">
             <Award className="h-7 w-7 text-accent" />
-            <h2 className="mt-4 text-2xl font-bold text-foreground">Achievements</h2>
-            <ul className="mt-4 space-y-3">
+            <h2 className="mt-3 text-2xl font-bold text-foreground">Achievements</h2>
+            <ul className="mt-3 space-y-2">
               {achievements.map((a) => (
                 <li key={a} className="flex gap-3 text-muted-foreground"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{a}</li>
               ))}
             </ul>
           </div>
-          <div className="rounded-2xl border border-border bg-card p-8 shadow-card">
+          <div className="rounded-2xl border border-border bg-card p-6 shadow-card">
             <Users className="h-7 w-7 text-accent" />
-            <h2 className="mt-4 text-2xl font-bold text-foreground">Leadership</h2>
-            <ul className="mt-4 space-y-3">
+            <h2 className="mt-3 text-2xl font-bold text-foreground">Leadership</h2>
+            <ul className="mt-3 space-y-2">
               {leadership.map((a) => (
                 <li key={a} className="flex gap-3 text-muted-foreground"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{a}</li>
               ))}
