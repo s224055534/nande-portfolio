@@ -59,6 +59,40 @@ function CertificationsPage() {
   const [editing, setEditing] = useState<Cert | null>(null);
   const [form, setForm] = useState<FormState>(emptyForm);
   const [saving, setSaving] = useState(false);
+  const [ocrLoading, setOcrLoading] = useState(false);
+  const runOcr = useServerFn(extractCertificateOrg);
+
+  async function handleFileChange(file: File | null) {
+    setForm((f) => ({ ...f, file }));
+    if (!file) return;
+    const isImage = file.type.startsWith("image/");
+    const isPdf = file.type === "application/pdf";
+    if (!isImage && !isPdf) return;
+    if (file.size > 8 * 1024 * 1024) return; // skip very large files
+    setOcrLoading(true);
+    try {
+      const buf = await file.arrayBuffer();
+      let binary = "";
+      const bytes = new Uint8Array(buf);
+      for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
+      const fileBase64 = btoa(binary);
+      const result = await runOcr({
+        data: { fileBase64, mimeType: file.type, filename: file.name },
+      });
+      setForm((f) => ({
+        ...f,
+        organization: f.organization || (result.organization ?? ""),
+        title: f.title || (result.title ?? ""),
+      }));
+      if (result.organization) toast.success(`Detected: ${result.organization}`);
+    } catch (err) {
+      console.error(err);
+      toast.error("Could not auto-detect organization. Please enter it manually.");
+    } finally {
+      setOcrLoading(false);
+    }
+  }
+
 
   async function load() {
     setLoading(true);
