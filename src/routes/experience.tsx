@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Layout";
-import { Briefcase, BookOpen, Rocket } from "lucide-react";
+import { Briefcase, BookOpen, Rocket, Code2 } from "lucide-react";
 
 export const Route = createFileRoute("/experience")({
   head: () => ({
