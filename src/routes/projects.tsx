@@ -51,17 +51,17 @@ function ProjectsPage() {
       </div>
 
       <Section>
-        <div className="grid gap-8">
+        <div className="grid gap-6">
           {projects.map((p) => (
             <article key={p.title} className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
               <div className="grid lg:grid-cols-[1fr_1.4fr]">
                 <div className="grid aspect-video place-items-center bg-gradient-hero text-primary-foreground/70 lg:aspect-auto">
-                  <div className="flex flex-col items-center gap-2 p-8 text-center">
+                  <div className="flex flex-col items-center gap-2 p-6 text-center">
                     <ImageIcon className="h-10 w-10" />
                     <p className="text-sm font-medium">Screenshot placeholder</p>
                   </div>
                 </div>
-                <div className="p-7 sm:p-8">
+                <div className="p-5 sm:p-6">
                   <p className="text-xs font-semibold uppercase tracking-wider text-accent">{p.role}</p>
                   <h2 className="mt-1 text-2xl font-bold text-foreground">{p.title}</h2>
                   <p className="mt-3 leading-relaxed text-muted-foreground">{p.overview}</p>

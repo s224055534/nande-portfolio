@@ -54,8 +54,8 @@ function ContactPage() {
       </div>
 
       <Section>
-        <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr]">
-          <form onSubmit={onSubmit} className="rounded-2xl border border-border bg-card p-7 shadow-card sm:p-8" noValidate>
+        <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
+          <form onSubmit={onSubmit} className="rounded-2xl border border-border bg-card p-5 shadow-card sm:p-6" noValidate>
             {sent && (
               <div className="mb-6 flex items-start gap-3 rounded-lg border border-accent/30 bg-accent/10 p-4 text-sm text-foreground">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
