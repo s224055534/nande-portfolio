@@ -44,7 +44,7 @@ function ContactPage() {
   return (
     <>
       <div className="bg-gradient-subtle border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-accent">Contact</p>
           <h1 className="mt-2 text-4xl font-bold text-foreground sm:text-5xl">Let's Connect</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">
@@ -54,7 +54,7 @@ function ContactPage() {
       </div>
 
       <Section>
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
+        <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr]">
           <form onSubmit={onSubmit} className="rounded-2xl border border-border bg-card p-7 shadow-card sm:p-8" noValidate>
             {sent && (
               <div className="mb-6 flex items-start gap-3 rounded-lg border border-accent/30 bg-accent/10 p-4 text-sm text-foreground">

@@ -18,7 +18,7 @@ function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-hero text-primary-foreground">
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 20% 20%, white 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:px-8 lg:py-32">
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:px-8 lg:py-24">
           <div>
             <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary-foreground/90">
               Available for opportunities
@@ -56,7 +56,7 @@ function Home() {
       </section>
 
       {/* Summary */}
-      <section className="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-8">
+      <section className="mx-auto max-w-4xl px-4 py-10 text-center sm:px-6 sm:py-14 lg:px-8">
         <p className="text-sm font-semibold uppercase tracking-wider text-accent">Professional Summary</p>
         <p className="mt-6 text-lg leading-relaxed text-muted-foreground sm:text-xl">
           I am an aspiring Full-Stack Developer and Software Developer with a Higher Certificate in IT (User Support),
@@ -70,7 +70,7 @@ function Home() {
 
       {/* Highlights */}
       <section className="bg-secondary/40">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
           <div className="grid gap-6 md:grid-cols-3">
             {[
               { icon: Code2, title: "Full-Stack Development", body: "Designing and shipping responsive web apps with ASP.NET, React, TypeScript and modern tooling." },

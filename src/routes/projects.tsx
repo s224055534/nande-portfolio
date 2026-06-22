@@ -43,7 +43,7 @@ function ProjectsPage() {
   return (
     <>
       <div className="bg-gradient-subtle border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-accent">Portfolio</p>
           <h1 className="mt-2 text-4xl font-bold text-foreground sm:text-5xl">Selected Projects</h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">A snapshot of enterprise systems and AI-driven products I've designed and built.</p>
