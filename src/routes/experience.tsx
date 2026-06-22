@@ -80,10 +80,10 @@ function ExperiencePage() {
               <div className="min-w-0">
                 <h3 className="text-xl font-semibold text-foreground">{r.title}</h3>
                 <p className="text-sm font-medium text-accent">{r.period}</p>
-                <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+                <ul className="mt-3 flex flex-wrap gap-2">
                   {r.bullets.map((b) => (
-                    <li key={b} className="flex gap-3 text-sm text-muted-foreground">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{b}
+                    <li key={b} className="inline-flex items-center gap-2 rounded-lg bg-muted/60 px-3 py-1.5 text-sm text-muted-foreground">
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{b}
                     </li>
                   ))}
                 </ul>
