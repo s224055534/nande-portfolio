@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Section } from "@/components/Layout";
-import { Award, Eye, Plus, Pencil, Trash2, LogOut, ExternalLink } from "lucide-react";
+import { Eye, Plus, Pencil, Trash2, LogOut, ExternalLink, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
@@ -12,6 +12,9 @@ import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter,
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
+import { useServerFn } from "@tanstack/react-start";
+import { extractCertificateOrg } from "@/lib/certificate-ocr.functions";
+import { OrgLogo } from "@/components/OrgLogo";
 
 export const Route = createFileRoute("/certifications")({
   head: () => ({
@@ -56,6 +59,40 @@ function CertificationsPage() {
   const [editing, setEditing] = useState<Cert | null>(null);
   const [form, setForm] = useState<FormState>(emptyForm);
   const [saving, setSaving] = useState(false);
+  const [ocrLoading, setOcrLoading] = useState(false);
+  const runOcr = useServerFn(extractCertificateOrg);
+
+  async function handleFileChange(file: File | null) {
+    setForm((f) => ({ ...f, file }));
+    if (!file) return;
+    const isImage = file.type.startsWith("image/");
+    const isPdf = file.type === "application/pdf";
+    if (!isImage && !isPdf) return;
+    if (file.size > 8 * 1024 * 1024) return; // skip very large files
+    setOcrLoading(true);
+    try {
+      const buf = await file.arrayBuffer();
+      let binary = "";
+      const bytes = new Uint8Array(buf);
+      for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
+      const fileBase64 = btoa(binary);
+      const result = await runOcr({
+        data: { fileBase64, mimeType: file.type, filename: file.name },
+      });
+      setForm((f) => ({
+        ...f,
+        organization: f.organization || (result.organization ?? ""),
+        title: f.title || (result.title ?? ""),
+      }));
+      if (result.organization) toast.success(`Detected: ${result.organization}`);
+    } catch (err) {
+      console.error(err);
+      toast.error("Could not auto-detect organization. Please enter it manually.");
+    } finally {
+      setOcrLoading(false);
+    }
+  }
+
 
   async function load() {
     setLoading(true);
@@ -191,9 +228,8 @@ function CertificationsPage() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {certs.map((c) => (
               <article key={c.id} className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-card">
-                <div className="grid h-11 w-11 place-items-center rounded-lg bg-gradient-hero text-primary-foreground">
-                  <Award className="h-5 w-5" />
-                </div>
+                <OrgLogo organization={c.organization} />
+
                 <h3 className="mt-4 text-base font-semibold text-foreground">{c.title}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{c.organization}</p>
                 <p className="mt-1 text-xs font-medium uppercase tracking-wider text-accent">
@@ -278,9 +314,15 @@ function CertificationsPage() {
             <div className="space-y-1.5">
               <Label htmlFor="file">Upload Certificate (PDF/Image, optional)</Label>
               <Input id="file" type="file" accept="application/pdf,image/*"
-                onChange={(e) => setForm({ ...form, file: e.target.files?.[0] ?? null })} />
+                onChange={(e) => handleFileChange(e.target.files?.[0] ?? null)} />
+              {ocrLoading && (
+                <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                  <Loader2 className="h-3 w-3 animate-spin" /> Detecting issuing organization…
+                </p>
+              )}
               {form.existing_file_url && !form.file && (
                 <p className="text-xs text-muted-foreground">Existing file will be kept unless replaced.</p>
+
               )}
             </div>
             <DialogFooter>
