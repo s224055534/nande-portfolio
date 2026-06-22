@@ -20,10 +20,8 @@ const roles = [
     bullets: [
       "Developing and contributing to the full-stack architecture of the platform",
       "Designing the implementation of AI-driven ticket classification logic",
-      "Supporting integration between the backend system and AI/NLP components",
       "Building and maintaining features for ticket creation, tracking, and management",
       "Collaborating with team members in an Agile-style development environment",
-      "Engaging in code reviews, debugging, and system testing",
     ],
   },
   {
