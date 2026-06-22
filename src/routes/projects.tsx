@@ -78,13 +78,13 @@ function ProjectsPage() {
                   <div className="mt-5 grid gap-5 sm:grid-cols-2">
                     <div>
                       <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Key Features</h3>
-                      <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
+                      <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
                         {p.features.map((f) => <li key={f} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{f}</li>)}
                       </ul>
                     </div>
                     <div>
                       <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Outcomes</h3>
-                      <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
+                      <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
                         {p.outcomes.map((o) => <li key={o} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{o}</li>)}
                       </ul>
                     </div>
