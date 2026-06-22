@@ -14,6 +14,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const { user } = useAuth();
   return (
     <>
       {/* Hero */}
