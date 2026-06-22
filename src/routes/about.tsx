@@ -37,8 +37,8 @@ function About() {
       </div>
 
       <Section>
-        <div className="grid gap-8 lg:grid-cols-2">
-          <article className="rounded-2xl border border-border bg-card p-8 shadow-card">
+        <div className="grid gap-6 lg:grid-cols-2">
+          <article className="rounded-2xl border border-border bg-card p-6 shadow-card">
             <h2 className="text-xl font-semibold text-foreground">Personal Background</h2>
             <p className="mt-3 leading-relaxed text-muted-foreground">
               I come from a rural community where opportunities were limited, but determination and education became
@@ -46,7 +46,7 @@ function About() {
               resilience and discipline. These experiences inspired my passion for technology and problem-solving.
             </p>
           </article>
-          <article className="rounded-2xl border border-border bg-card p-8 shadow-card">
+          <article className="rounded-2xl border border-border bg-card p-6 shadow-card">
             <h2 className="text-xl font-semibold text-foreground">Professional Background</h2>
             <p className="mt-3 leading-relaxed text-muted-foreground">
               My journey began with a strong foundation in technical support and analytical thinking. Through my
@@ -59,16 +59,16 @@ function About() {
       </Section>
 
       <section className="bg-secondary/40">
-        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-16 sm:px-6 md:grid-cols-2 lg:px-8">
-          <div className="rounded-2xl bg-primary p-8 text-primary-foreground shadow-elevated">
+        <div className="mx-auto grid max-w-7xl gap-5 px-4 py-10 sm:px-6 md:grid-cols-2 lg:px-8">
+          <div className="rounded-2xl bg-primary p-6 text-primary-foreground shadow-elevated">
             <Compass className="h-7 w-7 text-accent" />
-            <h2 className="mt-4 text-2xl font-bold">Vision</h2>
-            <p className="mt-3 leading-relaxed text-primary-foreground/85">
+            <h2 className="mt-3 text-2xl font-bold">Vision</h2>
+            <p className="mt-2 leading-relaxed text-primary-foreground/85">
               To become a leading technology professional who develops innovative, reliable, and secure solutions that
               positively impact businesses and communities.
             </p>
           </div>
-          <div className="rounded-2xl border border-border bg-card p-8 shadow-card">
+          <div className="rounded-2xl border border-border bg-card p-6 shadow-card">
             <Target className="h-7 w-7 text-accent" />
             <h2 className="mt-4 text-2xl font-bold text-foreground">Mission</h2>
             <p className="mt-3 leading-relaxed text-muted-foreground">
