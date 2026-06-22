@@ -66,7 +66,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <main className="flex-1">{children}</main>
 
       <footer className="border-t border-border bg-primary text-primary-foreground">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-3 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 md:grid-cols-3 lg:px-8">
           <div>
             <h3 className="font-display text-lg font-bold">Godidi Nande</h3>
             <p className="mt-2 text-sm text-primary-foreground/70">
@@ -110,8 +110,8 @@ export function Layout({ children }: { children: ReactNode }) {
 export function Section({ title, eyebrow, children, className = "" }: { title?: string; eyebrow?: string; children: ReactNode; className?: string }) {
   return (
     <section className={`mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 ${className}`}>
-      {eyebrow && <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">{eyebrow}</p>}
-      {title && <h2 className="mb-8 text-3xl font-bold text-foreground sm:text-4xl">{title}</h2>}
+      {eyebrow && <p className="mb-1.5 text-sm font-semibold uppercase tracking-wider text-accent">{eyebrow}</p>}
+      {title && <h2 className="mb-5 text-3xl font-bold text-foreground sm:text-4xl">{title}</h2>}
       {children}
     </section>
   );
