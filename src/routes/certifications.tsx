@@ -194,9 +194,8 @@ function CertificationsPage() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {certs.map((c) => (
               <article key={c.id} className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-card">
-                <div className="grid h-11 w-11 place-items-center rounded-lg bg-gradient-hero text-primary-foreground">
-                  <Award className="h-5 w-5" />
-                </div>
+                <OrgLogo organization={c.organization} />
+
                 <h3 className="mt-4 text-base font-semibold text-foreground">{c.title}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{c.organization}</p>
                 <p className="mt-1 text-xs font-medium uppercase tracking-wider text-accent">
