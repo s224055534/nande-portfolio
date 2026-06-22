@@ -109,7 +109,7 @@ export function Layout({ children }: { children: ReactNode }) {
 
 export function Section({ title, eyebrow, children, className = "" }: { title?: string; eyebrow?: string; children: ReactNode; className?: string }) {
   return (
-    <section className={`mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 ${className}`}>
+    <section className={`mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 ${className}`}>
       {eyebrow && <p className="mb-1.5 text-sm font-semibold uppercase tracking-wider text-accent">{eyebrow}</p>}
       {title && <h2 className="mb-5 text-3xl font-bold text-foreground sm:text-4xl">{title}</h2>}
       {children}
