@@ -71,23 +71,25 @@ function ExperiencePage() {
       </div>
 
       <Section>
-        <div className="grid gap-5">
+        <div className="grid gap-5 sm:grid-cols-2">
           {roles.map((r) => (
-            <article key={r.title} className="grid gap-5 rounded-2xl border border-border bg-card p-6 shadow-card md:grid-cols-[auto_1fr]">
-              <div className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-gradient-hero text-primary-foreground shadow-elevated">
-                <r.icon className="h-6 w-6" />
+            <article key={r.title} className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-5 shadow-card">
+              <div className="flex items-center gap-3">
+                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-hero text-primary-foreground shadow-elevated">
+                  <r.icon className="h-5 w-5" />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-lg font-semibold text-foreground">{r.title}</h3>
+                  <p className="text-sm font-medium text-accent">{r.period}</p>
+                </div>
               </div>
-              <div className="min-w-0">
-                <h3 className="text-xl font-semibold text-foreground">{r.title}</h3>
-                <p className="text-sm font-medium text-accent">{r.period}</p>
-                <ul className="mt-3 flex flex-wrap gap-2">
-                  {r.bullets.map((b) => (
-                    <li key={b} className="inline-flex items-center gap-2 rounded-lg bg-muted/60 px-3 py-1.5 text-sm text-muted-foreground">
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{b}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <ul className="flex flex-wrap gap-2">
+                {r.bullets.map((b) => (
+                  <li key={b} className="inline-flex items-center gap-2 rounded-lg bg-muted/60 px-3 py-1.5 text-sm text-muted-foreground">
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{b}
+                  </li>
+                ))}
+              </ul>
             </article>
           ))}
         </div>
