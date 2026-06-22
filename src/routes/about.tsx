@@ -16,6 +16,7 @@ const goals = [
   "Become a Full-Stack Software Engineer",
   "Specialize in Artificial Intelligence and Machine Learning",
   "Build scalable enterprise applications",
+  "Develop expertise in Cybersecurity and secure software development",
   "Contribute to innovative technology projects",
   "Develop leadership skills in technology management",
 ];
