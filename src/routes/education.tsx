@@ -13,10 +13,10 @@ export const Route = createFileRoute("/education")({
 });
 
 const timeline = [
-  { year: "2025", title: "Advanced Diploma in Information Technology", subtitle: "Software Development", desc: "Advanced study in enterprise software development, system design and emerging technologies." },
-  { year: "2024", title: "Diploma in Information Technology", subtitle: "Software Development", desc: "Built full-stack web applications, database-driven systems, and enterprise prototypes." },
-  { year: "2023", title: "Higher Certificate in Information Technology", subtitle: "User Support Services", desc: "Foundations of IT support, hardware, networks, and customer-focused problem solving." },
-  { year: "2022", title: "Grade 12 — Mathematics Excellence", subtitle: "Achieved the 3rd highest Mathematics score in Grade 12", desc: "Selected by educators to tutor mathematical concepts to peers." },
+  { year: "Feb 2025 – Dec 2025", title: "Advanced Diploma in Information Technology", subtitle: "Software Development", desc: "Advanced study in enterprise software development, system design and emerging technologies." },
+  { year: "Feb 2022 – Dec 2024", title: "Diploma in Information Technology", subtitle: "Software Development", desc: "Built full-stack web applications, database-driven systems, and enterprise prototypes." },
+  { year: "Feb 2021 – Dec 2021", title: "Higher Certificate in Information Technology", subtitle: "User Support Services", desc: "Foundations of IT support, hardware, networks, and customer-focused problem solving." },
+  { year: "2020", title: "Matriculated — Grade 12 (Mathematics Excellence)", subtitle: "Achieved the 3rd highest Mathematics score in Grade 12", desc: "Selected by educators to tutor mathematical concepts to peers." },
 ];
 
 const achievements = [
