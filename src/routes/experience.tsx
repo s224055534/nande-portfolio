@@ -1,18 +1,31 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Layout";
-import { Briefcase, BookOpen, Rocket } from "lucide-react";
+import { Briefcase, BookOpen, Rocket, Code2 } from "lucide-react";
 
 export const Route = createFileRoute("/experience")({
   head: () => ({
     meta: [
       { title: "Experience — Godidi Nande" },
-      { name: "description", content: "Professional experience as a Student Developer, Academic Mentor, and Technology Enthusiast." },
+      { name: "description", content: "Professional experience as a Professional Development Candidate at Capaciti GQ IT Hub, Student Developer, Academic Mentor, and Technology Enthusiast." },
     ],
   }),
   component: ExperiencePage,
 });
 
 const roles = [
+  {
+    icon: Code2,
+    title: "Professional Development Candidate",
+    period: "Capaciti GQ IT Hub",
+    bullets: [
+      "Developing and contributing to the full-stack architecture of the platform",
+      "Designing the implementation of AI-driven ticket classification logic",
+      "Supporting integration between the backend system and AI/NLP components",
+      "Building and maintaining features for ticket creation, tracking, and management",
+      "Collaborating with team members in an Agile-style development environment",
+      "Engaging in code reviews, debugging, and system testing",
+    ],
+  },
   {
     icon: Briefcase,
     title: "Student Developer",
@@ -67,10 +80,10 @@ function ExperiencePage() {
               <div className="min-w-0">
                 <h3 className="text-xl font-semibold text-foreground">{r.title}</h3>
                 <p className="text-sm font-medium text-accent">{r.period}</p>
-                <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+                <ul className="mt-3 flex flex-wrap gap-2">
                   {r.bullets.map((b) => (
-                    <li key={b} className="flex gap-3 text-sm text-muted-foreground">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{b}
+                    <li key={b} className="inline-flex items-center gap-2 rounded-lg bg-muted/60 px-3 py-1.5 text-sm text-muted-foreground">
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{b}
                     </li>
                   ))}
                 </ul>
