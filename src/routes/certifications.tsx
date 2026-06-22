@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Section } from "@/components/Layout";
-import { Award, Eye, Plus, Pencil, Trash2, LogOut, ExternalLink } from "lucide-react";
+import { Eye, Plus, Pencil, Trash2, LogOut, ExternalLink, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
@@ -12,6 +12,9 @@ import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter,
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
+import { useServerFn } from "@tanstack/react-start";
+import { extractCertificateOrg } from "@/lib/certificate-ocr.functions";
+import { OrgLogo } from "@/components/OrgLogo";
 
 export const Route = createFileRoute("/certifications")({
   head: () => ({
