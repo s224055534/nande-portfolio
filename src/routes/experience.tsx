@@ -6,7 +6,7 @@ export const Route = createFileRoute("/experience")({
   head: () => ({
     meta: [
       { title: "Experience — Godidi Nande" },
-      { name: "description", content: "Professional experience as a Student Developer, Academic Mentor, and Technology Enthusiast." },
+      { name: "description", content: "Professional experience as a Professional Development Candidate at Capaciti GQ IT Hub, Student Developer, Academic Mentor, and Technology Enthusiast." },
     ],
   }),
   component: ExperiencePage,
