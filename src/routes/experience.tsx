@@ -53,7 +53,7 @@ const roles = [
     title: "Technology Enthusiast & Independent Learner",
     period: "Ongoing",
     bullets: [
-      "Title: "Continuous learning of software development technologies",
+      "Continuous learning of software development technologies",
       "Building personal projects",
       "Exploring AI and machine learning applications",
     ],
