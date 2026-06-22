@@ -90,6 +90,15 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* Admin */}
+      <div className="mx-auto max-w-7xl px-4 py-6 text-right sm:px-6 lg:px-8">
+        {!user && (
+          <Link to="/auth" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors">
+            <Shield className="h-3 w-3" /> Admin
+          </Link>
+        )}
+      </div>
     </>
   );
 }
