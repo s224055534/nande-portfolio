@@ -30,14 +30,14 @@ function About() {
   return (
     <>
       <div className="bg-gradient-subtle border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-accent">About</p>
           <h1 className="mt-2 text-4xl font-bold text-foreground sm:text-5xl">My Story</h1>
         </div>
       </div>
 
       <Section>
-        <div className="grid gap-10 lg:grid-cols-2">
+        <div className="grid gap-8 lg:grid-cols-2">
           <article className="rounded-2xl border border-border bg-card p-8 shadow-card">
             <h2 className="text-xl font-semibold text-foreground">Personal Background</h2>
             <p className="mt-3 leading-relaxed text-muted-foreground">
