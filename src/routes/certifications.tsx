@@ -314,9 +314,15 @@ function CertificationsPage() {
             <div className="space-y-1.5">
               <Label htmlFor="file">Upload Certificate (PDF/Image, optional)</Label>
               <Input id="file" type="file" accept="application/pdf,image/*"
-                onChange={(e) => setForm({ ...form, file: e.target.files?.[0] ?? null })} />
+                onChange={(e) => handleFileChange(e.target.files?.[0] ?? null)} />
+              {ocrLoading && (
+                <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                  <Loader2 className="h-3 w-3 animate-spin" /> Detecting issuing organization…
+                </p>
+              )}
               {form.existing_file_url && !form.file && (
                 <p className="text-xs text-muted-foreground">Existing file will be kept unless replaced.</p>
+
               )}
             </div>
             <DialogFooter>
