@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Section } from "@/components/Layout";
 import { Eye, Plus, Pencil, Trash2, LogOut, ExternalLink, Loader2 } from "lucide-react";
@@ -216,9 +216,7 @@ function CertificationsPage() {
               >
                 <LogOut className="h-4 w-4" /> Sign out
               </Button>
-            ) : (
-              <Link to="/auth" className="text-xs text-muted-foreground hover:text-foreground">Admin</Link>
-            )}
+            ) : null}
           </div>
         </div>
       </div>
