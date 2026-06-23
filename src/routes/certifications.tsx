@@ -216,9 +216,7 @@ function CertificationsPage() {
               >
                 <LogOut className="h-4 w-4" /> Sign out
               </Button>
-            ) : (
-              <Link to="/auth" className="text-xs text-muted-foreground hover:text-foreground">Admin</Link>
-            )}
+            ) : null}
           </div>
         </div>
       </div>
