@@ -62,6 +62,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Godidi Nande" },
       { name: "twitter:card", content: "summary" },
+      { name: "google-site-verification", content: "irm_Gjjv7GzlgH2r2K_PdOrcWa2ER4d1QOfh3QF2VWI" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
