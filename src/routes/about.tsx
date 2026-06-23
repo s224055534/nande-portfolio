@@ -6,8 +6,12 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — Godidi Nande" },
-      { name: "description", content: "My story, vision, mission, and career goals as a Full-Stack Developer." },
+      { name: "description", content: "My story, vision, mission, and career goals as a Full-Stack Developer and IT Professional." },
+      { property: "og:title", content: "About Godidi Nande" },
+      { property: "og:description", content: "Personal background, vision, mission, and career goals of Godidi Nande, Full-Stack Developer." },
+      { property: "og:url", content: "https://nande-portfolio.lovable.app/about" },
     ],
+    links: [{ rel: "canonical", href: "https://nande-portfolio.lovable.app/about" }],
   }),
   component: About,
 });

@@ -8,8 +8,12 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Godidi Nande" },
-      { name: "description", content: "Get in touch about software development, collaborations, and opportunities." },
+      { name: "description", content: "Get in touch with Godidi Nande about software development, collaborations, internships, and opportunities." },
+      { property: "og:title", content: "Contact Godidi Nande" },
+      { property: "og:description", content: "Reach out about full-stack development opportunities, collaborations, and innovative projects." },
+      { property: "og:url", content: "https://nande-portfolio.lovable.app/contact" },
     ],
+    links: [{ rel: "canonical", href: "https://nande-portfolio.lovable.app/contact" }],
   }),
   component: ContactPage,
 });
@@ -73,8 +77,8 @@ function ContactPage() {
               <Field label="Subject" name="subject" error={errors.subject} />
             </div>
             <div className="mt-5">
-              <label className="text-sm font-medium text-foreground">Message</label>
-              <textarea name="message" rows={6} maxLength={1000} className="mt-2 w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-accent focus:ring-2 focus:ring-accent/30" />
+              <label htmlFor="message" className="text-sm font-medium text-foreground">Message</label>
+              <textarea id="message" name="message" rows={6} maxLength={1000} className="mt-2 w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-accent focus:ring-2 focus:ring-accent/30" />
               {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
             </div>
             <button type="submit" className="mt-6 inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90">

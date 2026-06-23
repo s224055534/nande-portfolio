@@ -7,6 +7,23 @@ export const Route = createFileRoute("/projects")({
     meta: [
       { title: "Projects — Godidi Nande" },
       { name: "description", content: "Selected full-stack and AI projects: Fridge Management, Pharmacy Management, and AI Ticket Classification." },
+      { property: "og:title", content: "Selected Projects — Godidi Nande" },
+      { property: "og:description", content: "Enterprise systems and AI-driven products built with ASP.NET, React, SQL Server, and modern ML tooling." },
+      { property: "og:url", content: "https://nande-portfolio.lovable.app/projects" },
+    ],
+    links: [{ rel: "canonical", href: "https://nande-portfolio.lovable.app/projects" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            { "@type": "SoftwareApplication", name: "Fridge Management System", applicationCategory: "BusinessApplication", description: "Web-based system to manage customers, inventory, fault reporting, and servicing schedules for beverage manufacturers.", author: { "@type": "Person", name: "Godidi Nande" } },
+            { "@type": "SoftwareApplication", name: "Pharmacy Management System", applicationCategory: "BusinessApplication", description: "System to manage pharmaceutical operations, inventory, medicine tracking, and customer transactions.", author: { "@type": "Person", name: "Godidi Nande" } },
+            { "@type": "SoftwareApplication", name: "AI Ticket Classification Platform", applicationCategory: "BusinessApplication", description: "AI-powered ticket classification system that analyzes, categorizes, and routes support tickets automatically.", author: { "@type": "Person", name: "Godidi Nande" } },
+          ],
+        }),
+      },
     ],
   }),
   component: ProjectsPage,
