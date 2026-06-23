@@ -18,6 +18,7 @@ import { Route as CertificationsRouteImport } from './routes/certifications'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogSoftwareDeveloperPortfolioGuideRouteImport } from './routes/blog.software-developer-portfolio-guide'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -64,6 +65,12 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSoftwareDeveloperPortfolioGuideRoute =
+  BlogSoftwareDeveloperPortfolioGuideRouteImport.update({
+    id: '/blog/software-developer-portfolio-guide',
+    path: '/blog/software-developer-portfolio-guide',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByFullPath {
   '/experience': typeof ExperienceRoute
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/software-developer-portfolio-guide': typeof BlogSoftwareDeveloperPortfolioGuideRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,6 +94,7 @@ export interface FileRoutesByTo {
   '/experience': typeof ExperienceRoute
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/software-developer-portfolio-guide': typeof BlogSoftwareDeveloperPortfolioGuideRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -98,6 +107,7 @@ export interface FileRoutesById {
   '/experience': typeof ExperienceRoute
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/software-developer-portfolio-guide': typeof BlogSoftwareDeveloperPortfolioGuideRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/experience'
     | '/projects'
     | '/sitemap.xml'
+    | '/blog/software-developer-portfolio-guide'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +133,7 @@ export interface FileRouteTypes {
     | '/experience'
     | '/projects'
     | '/sitemap.xml'
+    | '/blog/software-developer-portfolio-guide'
   id:
     | '__root__'
     | '/'
@@ -133,6 +145,7 @@ export interface FileRouteTypes {
     | '/experience'
     | '/projects'
     | '/sitemap.xml'
+    | '/blog/software-developer-portfolio-guide'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -145,6 +158,7 @@ export interface RootRouteChildren {
   ExperienceRoute: typeof ExperienceRoute
   ProjectsRoute: typeof ProjectsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  BlogSoftwareDeveloperPortfolioGuideRoute: typeof BlogSoftwareDeveloperPortfolioGuideRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -212,6 +226,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/software-developer-portfolio-guide': {
+      id: '/blog/software-developer-portfolio-guide'
+      path: '/blog/software-developer-portfolio-guide'
+      fullPath: '/blog/software-developer-portfolio-guide'
+      preLoaderRoute: typeof BlogSoftwareDeveloperPortfolioGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -225,6 +246,8 @@ const rootRouteChildren: RootRouteChildren = {
   ExperienceRoute: ExperienceRoute,
   ProjectsRoute: ProjectsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  BlogSoftwareDeveloperPortfolioGuideRoute:
+    BlogSoftwareDeveloperPortfolioGuideRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
