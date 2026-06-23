@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nande-portfolio.lovable.app/sitemap.xml

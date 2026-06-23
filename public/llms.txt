@@ -1,0 +1,17 @@
+# Godidi Nande — Full-Stack Developer Portfolio
+
+> Personal portfolio of Godidi Nande, a Full-Stack Developer and IT Professional building scalable web, database, and AI-driven enterprise systems with ASP.NET, React, and SQL Server.
+
+## Pages
+
+- [Home](/): Introduction, professional summary, and highlights.
+- [About](/about): Personal background, vision, mission, and career goals.
+- [Education & Achievements](/education): Academic timeline, achievements, and leadership.
+- [Experience](/experience): Professional experience and roles.
+- [Projects](/projects): Selected full-stack and AI projects.
+- [Certifications](/certifications): Professional certifications and credentials.
+- [Contact](/contact): How to get in touch.
+
+## Guides
+
+- [How to create a software developer portfolio](/blog/software-developer-portfolio-guide): A practical guide to building a developer portfolio with ASP.NET and React.
