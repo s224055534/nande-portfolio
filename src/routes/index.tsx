@@ -7,8 +7,12 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Godidi Nande — Full-Stack Developer & IT Professional" },
-      { name: "description", content: "Aspiring Full-Stack Developer building web, database, and AI-driven enterprise systems." },
+      { name: "description", content: "Aspiring Full-Stack Developer building web, database, and AI-driven enterprise systems with ASP.NET, React, and SQL Server." },
+      { property: "og:title", content: "Godidi Nande — Full-Stack Developer & IT Professional" },
+      { property: "og:description", content: "Portfolio of Godidi Nande — Full-Stack Developer building scalable web, database, and AI-driven enterprise systems." },
+      { property: "og:url", content: "https://nande-portfolio.lovable.app/" },
     ],
+    links: [{ rel: "canonical", href: "https://nande-portfolio.lovable.app/" }],
   }),
   component: Home,
 });
@@ -26,7 +30,7 @@ function Home() {
               Available for opportunities
             </p>
             <h1 className="font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-              Godidi Nande
+              Godidi Nande — Full-Stack Developer
             </h1>
             <p className="mt-4 text-lg font-medium text-primary-foreground/90 sm:text-xl">
               Full-Stack Developer · Software Developer · IT Professional
@@ -73,6 +77,7 @@ function Home() {
       {/* Highlights */}
       <section className="bg-secondary/40">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+          <h2 className="mb-6 text-2xl font-bold text-foreground sm:text-3xl">What I Do</h2>
           <div className="grid gap-6 md:grid-cols-3">
             {[
               { icon: Code2, title: "Full-Stack Development", body: "Designing and shipping responsive web apps with ASP.NET, React, TypeScript and modern tooling." },
@@ -94,7 +99,7 @@ function Home() {
       {/* Admin */}
       <div className="mx-auto max-w-7xl px-4 py-6 text-right sm:px-6 lg:px-8">
         {!user && (
-          <Link to="/auth" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors">
+          <Link to="/auth" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors">
             <Shield className="h-3 w-3" /> Admin
           </Link>
         )}

@@ -6,8 +6,12 @@ export const Route = createFileRoute("/experience")({
   head: () => ({
     meta: [
       { title: "Experience — Godidi Nande" },
-      { name: "description", content: "Professional experience as a Professional Development Candidate at Capaciti GQ IT Hub, Student Developer, Academic Mentor, and Technology Enthusiast." },
+      { name: "description", content: "Professional experience as a Professional Development Candidate at Capaciti GQ IT Hub, Student Developer, and Academic Mentor." },
+      { property: "og:title", content: "Professional Experience — Godidi Nande" },
+      { property: "og:description", content: "Roles, responsibilities, and impact across full-stack development, AI integration, and academic mentoring." },
+      { property: "og:url", content: "https://nande-portfolio.lovable.app/experience" },
     ],
+    links: [{ rel: "canonical", href: "https://nande-portfolio.lovable.app/experience" }],
   }),
   component: ExperiencePage,
 });
@@ -69,6 +73,7 @@ function ExperiencePage() {
       </div>
 
       <Section>
+        <h2 className="mb-6 text-2xl font-bold text-foreground sm:text-3xl">Roles</h2>
         <div className="grid gap-5 sm:grid-cols-2">
           {roles.map((r) => (
             <article key={r.title} className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-5 shadow-card">

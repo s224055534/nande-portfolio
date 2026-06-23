@@ -6,8 +6,12 @@ export const Route = createFileRoute("/education")({
   head: () => ({
     meta: [
       { title: "Education & Achievements — Godidi Nande" },
-      { name: "description", content: "Academic timeline, achievements and leadership of Godidi Nande." },
+      { name: "description", content: "Academic timeline, achievements, and leadership of Godidi Nande — IT diplomas, software development studies, and mentoring." },
+      { property: "og:title", content: "Education & Achievements — Godidi Nande" },
+      { property: "og:description", content: "Academic journey through IT diplomas in Software Development, achievements, and leadership experience." },
+      { property: "og:url", content: "https://nande-portfolio.lovable.app/education" },
     ],
+    links: [{ rel: "canonical", href: "https://nande-portfolio.lovable.app/education" }],
   }),
   component: EducationPage,
 });

@@ -20,8 +20,12 @@ export const Route = createFileRoute("/certifications")({
   head: () => ({
     meta: [
       { title: "Certifications — Godidi Nande" },
-      { name: "description", content: "Professional certifications and credentials." },
+      { name: "description", content: "Professional certifications and credentials earned by Godidi Nande across software development, IT, and emerging technologies." },
+      { property: "og:title", content: "Certifications — Godidi Nande" },
+      { property: "og:description", content: "Verified professional credentials and certifications across software development and IT." },
+      { property: "og:url", content: "https://nande-portfolio.lovable.app/certifications" },
     ],
+    links: [{ rel: "canonical", href: "https://nande-portfolio.lovable.app/certifications" }],
   }),
   component: CertificationsPage,
 });
@@ -220,6 +224,7 @@ function CertificationsPage() {
       </div>
 
       <Section>
+        <h2 className="mb-6 text-2xl font-bold text-foreground sm:text-3xl">My Credentials</h2>
         {loading ? (
           <p className="text-sm text-muted-foreground">Loading…</p>
         ) : certs.length === 0 ? (
