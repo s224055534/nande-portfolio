@@ -69,8 +69,9 @@ function ContactPage() {
               <div className="mb-6 flex items-start gap-3 rounded-lg border border-accent/30 bg-accent/10 p-4 text-sm text-foreground">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                 <div>
-                  <p className="font-semibold">Message sent!</p>
-                  <p className="text-muted-foreground">Thank you for reaching out. I'll get back to you shortly.</p>
+                  <p className="font-semibold">Opening your email app…</p>
+                  <p className="text-muted-foreground">Your message has been prepared in your default email client. Just hit send to deliver it to me.</p>
+
                 </div>
               </div>
             )}
