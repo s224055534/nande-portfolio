@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Eye, ExternalLink, FileText, Pencil, Trash2, Image as ImageIcon } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { useServerFn } from "@tanstack/react-start";
+import { getCertificateSignedUrl } from "@/lib/certificate-signed-url.functions";
 import { OrgLogo } from "@/components/OrgLogo";
 import {
   Dialog,
@@ -8,6 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+
 
 export type Cert = {
   id: string;
