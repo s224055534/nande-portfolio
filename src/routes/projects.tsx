@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Layout";
-import { Github, ExternalLink, Image as ImageIcon } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import fridgeImg from "@/assets/fridge.png.asset.json";
+import pharmacyImg from "@/assets/pharmacy.png.asset.json";
+import aiImg from "@/assets/ai-ticket.png.asset.json";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -33,26 +36,32 @@ const projects = [
   {
     title: "Fridge Management System",
     role: "Full-Stack Developer",
+    image: fridgeImg.url,
     overview: "A web-based system to manage customer information, inventory control, fault reporting, servicing schedules, and fridge acquisitions for beverage manufacturing companies.",
     tech: ["ASP.NET MVC Core 8", "C#", "MS SQL Server", "Entity Framework", "HTML", "CSS", "JavaScript"],
     features: ["Customer & asset registry", "Fault reporting workflow", "Servicing schedules", "Inventory tracking"],
     outcomes: ["Digitized manual processes", "Improved inventory tracking", "Streamlined maintenance scheduling", "Enhanced operational efficiency"],
+    liveUrl: null,
   },
   {
     title: "Pharmacy Management System",
     role: "Software Developer",
+    image: pharmacyImg.url,
     overview: "A system designed to manage pharmaceutical operations, inventory management, medicine tracking, and customer transactions.",
     tech: ["C#", "ASP.NET", "SQL Server", "HTML", "CSS", "JavaScript"],
     features: ["Medicine & stock tracking", "POS transactions", "Role-based access", "Reporting dashboards"],
     outcomes: ["Improved inventory management", "Increased operational efficiency", "Enhanced reporting capabilities"],
+    liveUrl: null,
   },
   {
     title: "AI Ticket Classification Platform",
     role: "Full-Stack Developer / AI Integration Contributor",
+    image: aiImg.url,
     overview: "An AI-powered ticket classification system that automatically analyzes, categorizes, and routes support tickets — reducing manual sorting and accelerating resolution.",
     tech: ["React", "TypeScript", "AI APIs", "Prompt Engineering", "PostgreSQL", "Python", "ML / NLP"],
     features: ["Automated ticket categorization", "Smart routing to departments", "Status tracking (Open/In Progress/Resolved)", "Admin dashboard", "Search & filter by category, priority, status"],
     outcomes: ["Reduced manual sorting workload", "Faster response & resolution", "Higher classification accuracy", "Improved support workflows"],
+    liveUrl: "https://persona-powered-biz.lovable.app",
   },
 ];
 
@@ -72,11 +81,8 @@ function ProjectsPage() {
           {projects.map((p) => (
             <article key={p.title} className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
               <div className="grid lg:grid-cols-[1fr_1.4fr]">
-                <div className="grid aspect-video place-items-center bg-gradient-hero text-primary-foreground/70 lg:aspect-auto">
-                  <div className="flex flex-col items-center gap-2 p-6 text-center">
-                    <ImageIcon className="h-10 w-10" />
-                    <p className="text-sm font-medium">Screenshot placeholder</p>
-                  </div>
+                <div className="aspect-video w-full overflow-hidden bg-gradient-hero lg:aspect-auto">
+                  <img src={p.image} alt={`${p.title} preview`} className="h-full w-full object-cover" loading="lazy" />
                 </div>
                 <div className="p-5 sm:p-6">
                   <p className="text-xs font-semibold uppercase tracking-wider text-accent">{p.role}</p>
@@ -107,14 +113,13 @@ function ProjectsPage() {
                     </div>
                   </div>
 
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    <a href="#" className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90">
-                      <Github className="h-4 w-4" /> GitHub
-                    </a>
-                    <a href="#" className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground hover:bg-secondary">
-                      <ExternalLink className="h-4 w-4" /> Live Demo
-                    </a>
-                  </div>
+                  {p.liveUrl && (
+                    <div className="mt-6 flex flex-wrap gap-3">
+                      <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground hover:bg-secondary">
+                        <ExternalLink className="h-4 w-4" /> Live Demo
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </article>
