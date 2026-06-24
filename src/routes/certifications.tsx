@@ -37,7 +37,9 @@ type Cert = {
   organization: string;
   date_issued: string;
   description: string | null;
-  file_url: string | null;
+  file_url?: string | null;
+  has_file?: boolean | null;
+
   link_url: string | null;
 };
 
@@ -127,7 +129,7 @@ function CertificationsPage() {
       description: c.description ?? "",
       link_url: c.link_url ?? "",
       file: null,
-      existing_file_url: c.file_url,
+      existing_file_url: c.file_url ?? null,
     });
     setDialogOpen(true);
   }

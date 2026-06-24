@@ -17,7 +17,8 @@ export type Cert = {
   organization: string;
   date_issued: string;
   description: string | null;
-  file_url: string | null;
+  file_url?: string | null;
+  has_file?: boolean | null;
   link_url: string | null;
 };
 
@@ -34,26 +35,26 @@ export function CertCard({
   onEdit: (c: Cert) => void;
   onDelete: (c: Cert) => void;
 }) {
+  const hasFile = cert.has_file ?? Boolean(cert.file_url);
   const [preview, setPreview] = useState<{ url: string; isPdf: boolean } | null>(
-    () => (cert.file_url ? previewCache.get(cert.file_url) ?? null : null),
+    () => previewCache.get(cert.id) ?? null,
   );
   const [modalOpen, setModalOpen] = useState(false);
   const fetchSignedUrl = useServerFn(getCertificateSignedUrl);
 
   useEffect(() => {
     let cancelled = false;
-    if (!cert.file_url) return;
-    if (previewCache.has(cert.file_url)) {
-      setPreview(previewCache.get(cert.file_url)!);
+    if (!hasFile) return;
+    if (previewCache.has(cert.id)) {
+      setPreview(previewCache.get(cert.id)!);
       return;
     }
     (async () => {
       try {
-        const result = await fetchSignedUrl({ data: { path: cert.file_url! } });
+        const result = await fetchSignedUrl({ data: { certId: cert.id } });
         if (cancelled) return;
-        const isPdf = cert.file_url!.toLowerCase().endsWith(".pdf");
-        const value = { url: result.url, isPdf };
-        previewCache.set(cert.file_url!, value);
+        const value = { url: result.url, isPdf: result.isPdf };
+        previewCache.set(cert.id, value);
         setPreview(value);
       } catch {
         if (!cancelled) setPreview(null);
@@ -62,14 +63,15 @@ export function CertCard({
     return () => {
       cancelled = true;
     };
-  }, [cert.file_url, fetchSignedUrl]);
+  }, [cert.id, hasFile, fetchSignedUrl]);
 
 
-  const fileName = cert.file_url?.split("/").pop() ?? null;
+  const fileName = isAdmin ? cert.file_url?.split("/").pop() ?? null : null;
   const monthYear = new Date(cert.date_issued).toLocaleDateString(undefined, {
     year: "numeric",
     month: "short",
   });
+
 
   return (
     <>
