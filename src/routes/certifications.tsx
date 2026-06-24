@@ -129,7 +129,7 @@ function CertificationsPage() {
       description: c.description ?? "",
       link_url: c.link_url ?? "",
       file: null,
-      existing_file_url: c.file_url,
+      existing_file_url: c.file_url ?? null,
     });
     setDialogOpen(true);
   }
