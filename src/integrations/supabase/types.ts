@@ -21,6 +21,7 @@ export type Database = {
           description: string | null
           display_order: number
           file_url: string | null
+          has_file: boolean | null
           id: string
           link_url: string | null
           organization: string
@@ -33,6 +34,7 @@ export type Database = {
           description?: string | null
           display_order?: number
           file_url?: string | null
+          has_file?: boolean | null
           id?: string
           link_url?: string | null
           organization: string
@@ -45,6 +47,7 @@ export type Database = {
           description?: string | null
           display_order?: number
           file_url?: string | null
+          has_file?: boolean | null
           id?: string
           link_url?: string | null
           organization?: string
