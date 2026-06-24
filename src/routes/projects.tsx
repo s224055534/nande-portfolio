@@ -64,6 +64,7 @@ const projects = [
     features: ["Automated ticket categorization", "Smart routing to departments", "Status tracking (Open/In Progress/Resolved)", "Admin dashboard", "Search & filter by category, priority, status"],
     outcomes: ["Reduced manual sorting workload", "Faster response & resolution", "Higher classification accuracy", "Improved support workflows"],
     liveUrl: "https://persona-powered-biz.lovable.app",
+    githubUrl: null,
   },
 ];
 
