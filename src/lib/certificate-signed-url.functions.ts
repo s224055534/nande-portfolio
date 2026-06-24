@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
 const inputSchema = z.object({
-  path: z.string().min(1).max(500),
+  certId: z.string().uuid(),
 });
 
 export const getCertificateSignedUrl = createServerFn({ method: "POST" })
@@ -10,26 +10,27 @@ export const getCertificateSignedUrl = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
-    // Validate the requested path corresponds to a real certification record.
-    // This prevents path enumeration: only files referenced by the public
-    // certifications listing can have a signed URL minted.
+    // Look up the file path server-side by certification id. The path is
+    // never exposed to anon clients — we only mint a short-lived signed URL
+    // for a known certification record.
     const { data: row, error: lookupErr } = await supabaseAdmin
       .from("certifications")
-      .select("id")
-      .eq("file_url", data.path)
+      .select("file_url")
+      .eq("id", data.certId)
       .maybeSingle();
 
-    if (lookupErr || !row) {
+    if (lookupErr || !row || !row.file_url) {
       throw new Error("Certificate not found");
     }
 
     const { data: signed, error } = await supabaseAdmin.storage
       .from("certificates")
-      .createSignedUrl(data.path, 60 * 60);
+      .createSignedUrl(row.file_url, 60 * 60);
 
     if (error || !signed) {
       throw new Error(error?.message ?? "Could not sign certificate URL");
     }
 
-    return { url: signed.signedUrl };
+    const isPdf = row.file_url.toLowerCase().endsWith(".pdf");
+    return { url: signed.signedUrl, isPdf };
   });
