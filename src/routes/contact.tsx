@@ -41,9 +41,14 @@ function ContactPage() {
       return;
     }
     setErrors({});
+    const { name, email, subject, message } = parsed.data;
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+    const mailto = `mailto:ppngodidi322@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
     setSent(true);
     e.currentTarget.reset();
   }
+
 
   return (
     <>
