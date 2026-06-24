@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Layout";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import fridgeImg from "@/assets/fridge.png.asset.json";
 import pharmacyImg from "@/assets/pharmacy.png.asset.json";
 import aiImg from "@/assets/ai-ticket.png.asset.json";
