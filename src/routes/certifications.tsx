@@ -132,16 +132,8 @@ function CertificationsPage() {
     setDialogOpen(true);
   }
 
-  async function handleViewFile(path: string) {
-    const { data, error } = await supabase.storage
-      .from("certificates")
-      .createSignedUrl(path, 60 * 60);
-    if (error || !data) {
-      toast.error("Could not open certificate");
-      return;
-    }
-    window.open(data.signedUrl, "_blank", "noopener");
-  }
+
+
 
   async function handleSave(e: React.FormEvent) {
     e.preventDefault();
