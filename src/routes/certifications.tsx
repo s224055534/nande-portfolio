@@ -15,6 +15,7 @@ import { toast } from "sonner";
 import { useServerFn } from "@tanstack/react-start";
 import { extractCertificateOrg } from "@/lib/certificate-ocr.functions";
 import { OrgLogo } from "@/components/OrgLogo";
+import { CertCard } from "@/components/CertCard";
 
 export const Route = createFileRoute("/certifications")({
   head: () => ({
