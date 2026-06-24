@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Layout";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import fridgeImg from "@/assets/fridge.png.asset.json";
 import pharmacyImg from "@/assets/pharmacy.png.asset.json";
 import aiImg from "@/assets/ai-ticket.png.asset.json";
@@ -42,6 +42,7 @@ const projects = [
     features: ["Customer & asset registry", "Fault reporting workflow", "Servicing schedules", "Inventory tracking"],
     outcomes: ["Digitized manual processes", "Improved inventory tracking", "Streamlined maintenance scheduling", "Enhanced operational efficiency"],
     liveUrl: null,
+    githubUrl: "https://github.com/s224055534/FM.WebSite",
   },
   {
     title: "Pharmacy Management System",
@@ -52,6 +53,7 @@ const projects = [
     features: ["Medicine & stock tracking", "POS transactions", "Role-based access", "Reporting dashboards"],
     outcomes: ["Improved inventory management", "Increased operational efficiency", "Enhanced reporting capabilities"],
     liveUrl: null,
+    githubUrl: "https://github.com/s224055534/PharmacyApp",
   },
   {
     title: "AI Ticket Classification Platform",
@@ -62,6 +64,7 @@ const projects = [
     features: ["Automated ticket categorization", "Smart routing to departments", "Status tracking (Open/In Progress/Resolved)", "Admin dashboard", "Search & filter by category, priority, status"],
     outcomes: ["Reduced manual sorting workload", "Faster response & resolution", "Higher classification accuracy", "Improved support workflows"],
     liveUrl: "https://persona-powered-biz.lovable.app",
+    githubUrl: null,
   },
 ];
 
@@ -113,11 +116,18 @@ function ProjectsPage() {
                     </div>
                   </div>
 
-                  {p.liveUrl && (
+                  {(p.liveUrl || p.githubUrl) && (
                     <div className="mt-6 flex flex-wrap gap-3">
-                      <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground hover:bg-secondary">
-                        <ExternalLink className="h-4 w-4" /> Live Demo
-                      </a>
+                      {p.liveUrl && (
+                        <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground hover:bg-secondary">
+                          <ExternalLink className="h-4 w-4" /> Live Demo
+                        </a>
+                      )}
+                      {p.githubUrl && (
+                        <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground hover:bg-secondary">
+                          <Github className="h-4 w-4" /> GitHub
+                        </a>
+                      )}
                     </div>
                   )}
                 </div>
