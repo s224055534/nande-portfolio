@@ -37,7 +37,9 @@ type Cert = {
   organization: string;
   date_issued: string;
   description: string | null;
-  file_url: string | null;
+  file_url?: string | null;
+  has_file?: boolean | null;
+
   link_url: string | null;
 };
 
