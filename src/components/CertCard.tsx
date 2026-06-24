@@ -38,6 +38,7 @@ export function CertCard({
     () => (cert.file_url ? previewCache.get(cert.file_url) ?? null : null),
   );
   const [modalOpen, setModalOpen] = useState(false);
+  const fetchSignedUrl = useServerFn(getCertificateSignedUrl);
 
   useEffect(() => {
     let cancelled = false;
@@ -47,19 +48,22 @@ export function CertCard({
       return;
     }
     (async () => {
-      const { data } = await supabase.storage
-        .from("certificates")
-        .createSignedUrl(cert.file_url!, 60 * 60);
-      if (!data || cancelled) return;
-      const isPdf = cert.file_url!.toLowerCase().endsWith(".pdf");
-      const value = { url: data.signedUrl, isPdf };
-      previewCache.set(cert.file_url!, value);
-      setPreview(value);
+      try {
+        const result = await fetchSignedUrl({ data: { path: cert.file_url! } });
+        if (cancelled) return;
+        const isPdf = cert.file_url!.toLowerCase().endsWith(".pdf");
+        const value = { url: result.url, isPdf };
+        previewCache.set(cert.file_url!, value);
+        setPreview(value);
+      } catch {
+        if (!cancelled) setPreview(null);
+      }
     })();
     return () => {
       cancelled = true;
     };
-  }, [cert.file_url]);
+  }, [cert.file_url, fetchSignedUrl]);
+
 
   const fileName = cert.file_url?.split("/").pop() ?? null;
   const monthYear = new Date(cert.date_issued).toLocaleDateString(undefined, {
