@@ -53,6 +53,7 @@ const projects = [
     features: ["Medicine & stock tracking", "POS transactions", "Role-based access", "Reporting dashboards"],
     outcomes: ["Improved inventory management", "Increased operational efficiency", "Enhanced reporting capabilities"],
     liveUrl: null,
+    githubUrl: "https://github.com/s224055534/PharmacyApp",
   },
   {
     title: "AI Ticket Classification Platform",
