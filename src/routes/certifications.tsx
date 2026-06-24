@@ -15,6 +15,7 @@ import { toast } from "sonner";
 import { useServerFn } from "@tanstack/react-start";
 import { extractCertificateOrg } from "@/lib/certificate-ocr.functions";
 import { OrgLogo } from "@/components/OrgLogo";
+import { CertCard } from "@/components/CertCard";
 
 export const Route = createFileRoute("/certifications")({
   head: () => ({
@@ -228,60 +229,20 @@ function CertificationsPage() {
         ) : certs.length === 0 ? (
           <p className="text-sm text-muted-foreground">No certifications yet.</p>
         ) : (
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {certs.map((c) => (
-              <article key={c.id} className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-card">
-                <OrgLogo organization={c.organization} />
-
-                <h3 className="mt-4 text-base font-semibold text-foreground">{c.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{c.organization}</p>
-                <p className="mt-1 text-xs font-medium uppercase tracking-wider text-accent">
-                  {new Date(c.date_issued).toLocaleDateString(undefined, { year: "numeric", month: "short" })}
-                </p>
-                {c.description && (
-                  <p className="mt-3 text-sm text-muted-foreground line-clamp-3">{c.description}</p>
-                )}
-                <div className="mt-auto flex flex-wrap gap-2 pt-4 border-t border-border mt-5">
-                  {c.file_url && (
-                    <button
-                      onClick={() => handleViewFile(c.file_url!)}
-                      className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground hover:bg-primary/90"
-                    >
-                      <Eye className="h-3.5 w-3.5" /> View Certificate
-                    </button>
-                  )}
-                  {c.link_url && (
-                    <a
-                      href={c.link_url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-3 py-1.5 text-xs font-medium text-foreground hover:bg-secondary"
-                    >
-                      <ExternalLink className="h-3.5 w-3.5" /> Link
-                    </a>
-                  )}
-                  {isAdmin && (
-                    <>
-                      <button
-                        onClick={() => openEdit(c)}
-                        className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-3 py-1.5 text-xs font-medium text-foreground hover:bg-secondary"
-                      >
-                        <Pencil className="h-3.5 w-3.5" /> Edit
-                      </button>
-                      <button
-                        onClick={() => handleDelete(c)}
-                        className="inline-flex items-center gap-1.5 rounded-md border border-destructive/40 bg-background px-3 py-1.5 text-xs font-medium text-destructive hover:bg-destructive/10"
-                      >
-                        <Trash2 className="h-3.5 w-3.5" /> Delete
-                      </button>
-                    </>
-                  )}
-                </div>
-              </article>
+              <CertCard
+                key={c.id}
+                cert={c}
+                isAdmin={isAdmin}
+                onEdit={openEdit}
+                onDelete={handleDelete}
+              />
             ))}
           </div>
         )}
       </Section>
+
 
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <DialogContent className="max-h-[90vh] overflow-y-auto">
