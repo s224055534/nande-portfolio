@@ -81,8 +81,8 @@ function ProjectsPage() {
           {projects.map((p) => (
             <article key={p.title} className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
               <div className="grid lg:grid-cols-[1fr_1.4fr]">
-                <div className="aspect-video w-full overflow-hidden bg-gradient-hero lg:aspect-auto">
-                  <img src={p.image} alt={`${p.title} preview`} className="h-full w-full object-cover" loading="lazy" />
+                <div className="flex w-full items-center justify-center overflow-hidden bg-muted p-4 lg:p-6">
+                  <img src={p.image} alt={`${p.title} preview`} className="h-full max-h-[420px] w-full object-contain" loading="lazy" />
                 </div>
                 <div className="p-5 sm:p-6">
                   <p className="text-xs font-semibold uppercase tracking-wider text-accent">{p.role}</p>
