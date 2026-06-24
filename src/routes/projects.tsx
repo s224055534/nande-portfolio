@@ -42,6 +42,7 @@ const projects = [
     features: ["Customer & asset registry", "Fault reporting workflow", "Servicing schedules", "Inventory tracking"],
     outcomes: ["Digitized manual processes", "Improved inventory tracking", "Streamlined maintenance scheduling", "Enhanced operational efficiency"],
     liveUrl: null,
+    githubUrl: "https://github.com/s224055534/FM.WebSite",
   },
   {
     title: "Pharmacy Management System",
