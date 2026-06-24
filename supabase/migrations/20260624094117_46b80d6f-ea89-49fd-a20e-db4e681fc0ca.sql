@@ -1,0 +1,1 @@
+GRANT SELECT (file_url) ON public.certifications TO anon;
