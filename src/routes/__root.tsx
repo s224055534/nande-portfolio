@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           url: "https://nande-portfolio.lovable.app",
           sameAs: [
             "https://github.com/s224055534",
-            "https://linkedin.com/in/godidi.nande",
+            "https://linkedin.com/in/godidi-nande",
           ],
         }),
       },

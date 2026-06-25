@@ -48,7 +48,7 @@ function Home() {
             </div>
             <div className="mt-8 flex gap-3">
               <a href="https://github.com/s224055534" target="_blank" rel="noreferrer" className="rounded-md border border-white/20 p-2.5 hover:bg-white/10" aria-label="GitHub"><Github className="h-5 w-5" /></a>
-              <a href="https://linkedin.com/in/godidi.nande" target="_blank" rel="noreferrer" className="rounded-md border border-white/20 p-2.5 hover:bg-white/10" aria-label="LinkedIn"><Linkedin className="h-5 w-5" /></a>
+              <a href="https://linkedin.com/in/godidi-nande" target="_blank" rel="noreferrer" className="rounded-md border border-white/20 p-2.5 hover:bg-white/10" aria-label="LinkedIn"><Linkedin className="h-5 w-5" /></a>
               <a href="mailto:ppngodidi322@gmail.com" className="rounded-md border border-white/20 p-2.5 hover:bg-white/10" aria-label="Email"><Mail className="h-5 w-5" /></a>
             </div>
           </div>

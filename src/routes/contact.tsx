@@ -95,7 +95,7 @@ function ContactPage() {
           <aside className="space-y-4">
             <InfoCard icon={Mail} label="Email" value="ppngodidi322@gmail.com" href="mailto:ppngodidi322@gmail.com" />
             <InfoCard icon={Github} label="GitHub" value="@s224055534" href="https://github.com/s224055534" />
-            <InfoCard icon={Linkedin} label="LinkedIn" value="@godidi.nande" href="https://linkedin.com/in/godidi.nande" />
+            <InfoCard icon={Linkedin} label="LinkedIn" value="@godidi-nande" href="https://linkedin.com/in/godidi-nande" />
             <div className="rounded-2xl bg-primary p-6 text-primary-foreground shadow-elevated">
               <h3 className="text-lg font-semibold">Let's build something great</h3>
               <p className="mt-2 text-sm text-primary-foreground/85">Open to internships, junior roles, freelance, and collaborative projects.</p>

@@ -74,7 +74,7 @@ export function Layout({ children }: { children: ReactNode }) {
             </p>
             <div className="mt-4 flex gap-3">
               <a href="https://github.com/s224055534" target="_blank" rel="noreferrer" className="rounded-md p-2 hover:bg-white/10" aria-label="GitHub"><Github className="h-5 w-5" /></a>
-              <a href="https://linkedin.com/in/godidi.nande" target="_blank" rel="noreferrer" className="rounded-md p-2 hover:bg-white/10" aria-label="LinkedIn"><Linkedin className="h-5 w-5" /></a>
+              <a href="https://linkedin.com/in/godidi-nande" target="_blank" rel="noreferrer" className="rounded-md p-2 hover:bg-white/10" aria-label="LinkedIn"><Linkedin className="h-5 w-5" /></a>
               <a href="mailto:ppngodidi322@gmail.com" className="rounded-md p-2 hover:bg-white/10" aria-label="Email"><Mail className="h-5 w-5" /></a>
             </div>
           </div>
@@ -93,7 +93,7 @@ export function Layout({ children }: { children: ReactNode }) {
             <ul className="mt-4 space-y-2 text-sm text-primary-foreground/80">
               <li><a href="mailto:ppngodidi322@gmail.com" className="hover:text-primary-foreground">ppngodidi322@gmail.com</a></li>
               <li><a href="https://github.com/s224055534" target="_blank" rel="noreferrer" className="hover:text-primary-foreground">github.com/s224055534</a></li>
-              <li><a href="https://linkedin.com/in/godidi.nande" target="_blank" rel="noreferrer" className="hover:text-primary-foreground">linkedin.com/in/godidi.nande</a></li>
+              <li><a href="https://linkedin.com/in/godidi-nande" target="_blank" rel="noreferrer" className="hover:text-primary-foreground">linkedin.com/in/godidi-nande</a></li>
             </ul>
           </div>
         </div>
