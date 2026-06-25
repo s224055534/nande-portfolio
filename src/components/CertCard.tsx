@@ -106,11 +106,6 @@ export function CertCard({
               <ImageIcon className="h-10 w-10" />
             </div>
           )}
-          {preview && (
-            <span className="pointer-events-none absolute right-2 top-2 inline-flex items-center gap-1 rounded-md bg-background/85 px-2 py-1 text-[10px] font-medium text-foreground opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">
-              <Eye className="h-3 w-3" /> Preview
-            </span>
-          )}
         </button>
 
         {/* Body */}
