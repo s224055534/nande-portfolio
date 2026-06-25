@@ -185,7 +185,7 @@ export function CertCard({
             {preview ? (
               preview.isPdf ? (
                 <iframe
-                  src={preview.url}
+                  src={`${preview.url}#view=Fit&toolbar=0&navpanes=0`}
                   title={`${cert.title} certificate`}
                   className="h-full w-full"
                 />
