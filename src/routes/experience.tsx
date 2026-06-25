@@ -21,6 +21,7 @@ const roles = [
     icon: Code2,
     title: "Professional Development Candidate",
     period: "Capaciti GQ IT Hub",
+    when: "Present · In progress",
     bullets: [
       "Developing and contributing to the full-stack architecture of the platform",
       "Designing the implementation of AI-driven ticket classification logic",
@@ -32,6 +33,7 @@ const roles = [
     icon: Briefcase,
     title: "Student Developer",
     period: "Academic & Independent Projects",
+    when: "Recent",
     bullets: [
       "Designed and developed web applications",
       "Built database-driven systems",
@@ -44,6 +46,7 @@ const roles = [
     icon: BookOpen,
     title: "Academic Mentor",
     period: "Peer Tutoring & Support",
+    when: "Earlier",
     bullets: [
       "Assisted students with programming concepts",
       "Supported learning in mathematics and statistics",
@@ -53,7 +56,8 @@ const roles = [
   {
     icon: Rocket,
     title: "Technology Enthusiast & Independent Learner",
-    period: "Ongoing",
+    period: "Self-directed",
+    when: "Ongoing",
     bullets: [
       "Continuous learning of software development technologies",
       "Building personal projects",
@@ -73,29 +77,30 @@ function ExperiencePage() {
       </div>
 
       <Section>
-        <h2 className="mb-6 text-2xl font-bold text-foreground sm:text-3xl">Roles</h2>
-        <div className="grid gap-5 sm:grid-cols-2">
-          {roles.map((r) => (
-            <article key={r.title} className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-5 shadow-card">
-              <div className="flex items-center gap-3">
-                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-hero text-primary-foreground shadow-elevated">
-                  <r.icon className="h-5 w-5" />
-                </div>
-                <div className="min-w-0">
+        <h2 className="mb-8 text-2xl font-bold text-foreground sm:text-3xl">Timeline</h2>
+        <ol className="relative ml-3 border-l-2 border-border sm:ml-4">
+          {roles.map((r, i) => (
+            <li key={r.title} className={`relative pl-8 sm:pl-10 ${i === roles.length - 1 ? "" : "pb-10"}`}>
+              <span className="absolute -left-[13px] sm:-left-[15px] top-1 grid h-7 w-7 sm:h-8 sm:w-8 place-items-center rounded-full bg-gradient-hero text-primary-foreground shadow-elevated ring-4 ring-background">
+                <r.icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              </span>
+              <article className="rounded-2xl border border-border bg-card p-5 shadow-card">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
                   <h3 className="text-lg font-semibold text-foreground">{r.title}</h3>
-                  <p className="text-sm font-medium text-accent">{r.period}</p>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-accent">{r.when}</span>
                 </div>
-              </div>
-              <ul className="flex flex-wrap gap-2">
-                {r.bullets.map((b) => (
-                  <li key={b} className="inline-flex items-center gap-2 rounded-lg bg-muted/60 px-3 py-1.5 text-sm text-muted-foreground">
-                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{b}
-                  </li>
-                ))}
-              </ul>
-            </article>
+                <p className="mt-0.5 text-sm font-medium text-muted-foreground">{r.period}</p>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {r.bullets.map((b) => (
+                    <li key={b} className="inline-flex items-center gap-2 rounded-lg bg-muted/60 px-3 py-1.5 text-sm text-muted-foreground">
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{b}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </li>
           ))}
-        </div>
+        </ol>
       </Section>
     </>
   );

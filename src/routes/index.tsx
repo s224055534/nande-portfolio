@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Download, Github, Linkedin, Mail, Code2, Database, Brain, Shield } from "lucide-react";
+import { Download, Github, Linkedin, Mail, Code2, Database, Brain, Shield } from "lucide-react";
 import profile from "@/assets/profile.jpg";
 import { useAuth } from "@/hooks/use-auth";
 
@@ -30,7 +30,7 @@ function Home() {
               Available for opportunities
             </p>
             <h1 className="font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-              Godidi Nande — Full-Stack Developer
+              Godidi Nande
             </h1>
             <p className="mt-4 text-lg font-medium text-primary-foreground/90 sm:text-xl">
               Full-Stack Developer · Software Developer · IT Professional
@@ -42,13 +42,10 @@ function Home() {
               <a href="/cv.pdf" download className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground shadow-elevated transition hover:opacity-90">
                 <Download className="h-4 w-4" /> Download CV
               </a>
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-white/10">
-                Contact Me <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
             <div className="mt-8 flex gap-3">
               <a href="https://github.com/s224055534" target="_blank" rel="noreferrer" className="rounded-md border border-white/20 p-2.5 hover:bg-white/10" aria-label="GitHub"><Github className="h-5 w-5" /></a>
-              <a href="https://linkedin.com/in/godidi.nande" target="_blank" rel="noreferrer" className="rounded-md border border-white/20 p-2.5 hover:bg-white/10" aria-label="LinkedIn"><Linkedin className="h-5 w-5" /></a>
+              <a href="https://linkedin.com/in/godidi-nande" target="_blank" rel="noreferrer" className="rounded-md border border-white/20 p-2.5 hover:bg-white/10" aria-label="LinkedIn"><Linkedin className="h-5 w-5" /></a>
               <a href="mailto:ppngodidi322@gmail.com" className="rounded-md border border-white/20 p-2.5 hover:bg-white/10" aria-label="Email"><Mail className="h-5 w-5" /></a>
             </div>
           </div>
