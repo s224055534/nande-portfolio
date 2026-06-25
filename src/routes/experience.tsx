@@ -30,10 +30,21 @@ const roles = [
     ],
   },
   {
+    icon: Rocket,
+    title: "Technology Enthusiast & Independent Learner",
+    period: "Self-directed",
+    when: "Ongoing",
+    bullets: [
+      "Continuous learning of software development technologies",
+      "Building personal projects",
+      "Exploring AI and machine learning applications",
+    ],
+  },
+  {
     icon: Briefcase,
     title: "Student Developer",
     period: "Academic & Independent Projects",
-    when: "Recent",
+    when: "Feb 2022 – Dec 2025",
     bullets: [
       "Designed and developed web applications",
       "Built database-driven systems",
@@ -46,22 +57,11 @@ const roles = [
     icon: BookOpen,
     title: "Academic Mentor",
     period: "Peer Tutoring & Support",
-    when: "Earlier",
+    when: "Apr 2023 – Dec 2024",
     bullets: [
       "Assisted students with programming concepts",
       "Supported learning in mathematics and statistics",
       "Guided peers through technical problem-solving",
-    ],
-  },
-  {
-    icon: Rocket,
-    title: "Technology Enthusiast & Independent Learner",
-    period: "Self-directed",
-    when: "Ongoing",
-    bullets: [
-      "Continuous learning of software development technologies",
-      "Building personal projects",
-      "Exploring AI and machine learning applications",
     ],
   },
 ];
