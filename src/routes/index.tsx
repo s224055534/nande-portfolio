@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Download, Github, Linkedin, Mail, Code2, Database, Brain, Shield } from "lucide-react";
+import { Download, Github, Linkedin, Mail, Code2, Database, Brain, Shield } from "lucide-react";
 import profile from "@/assets/profile.jpg";
 import { useAuth } from "@/hooks/use-auth";
 
