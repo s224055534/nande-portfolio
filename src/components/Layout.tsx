@@ -17,10 +17,11 @@ export function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <Link to="/" className="flex items-center gap-2 font-display text-lg font-bold text-primary" aria-label="Home" />
+        <div className="mx-auto flex max-w-7xl items-center justify-center px-4 py-4 sm:px-6 lg:px-8">
+          <Link to="/" className="hidden" aria-label="Home" />
 
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="hidden items-center justify-center gap-1 lg:flex">
+
             {nav.map((n) => (
               <Link
                 key={n.to}
@@ -34,7 +35,7 @@ export function Layout({ children }: { children: ReactNode }) {
             ))}
           </nav>
           <button
-            className="rounded-md p-2 lg:hidden"
+            className="ml-auto rounded-md p-2 lg:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
           >
