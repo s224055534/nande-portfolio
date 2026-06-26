@@ -35,7 +35,7 @@ export function Layout({ children }: { children: ReactNode }) {
             ))}
           </nav>
           <button
-            className="rounded-md p-2 lg:hidden"
+            className="ml-auto rounded-md p-2 lg:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
           >
