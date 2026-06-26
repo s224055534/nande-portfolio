@@ -46,7 +46,7 @@ const projects = [
   },
   {
     title: "Pharmacy Management System",
-    role: "Software Developer",
+    role: "Full-Stack Developer",
     image: pharmacyImg.url,
     overview: "A system designed to manage pharmaceutical operations, inventory management, medicine tracking, and customer transactions.",
     tech: ["C#", "ASP.NET", "SQL Server", "HTML", "CSS", "JavaScript"],
