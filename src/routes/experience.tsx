@@ -20,7 +20,7 @@ const roles = [
   {
     icon: Code2,
     title: "Professional Development Candidate",
-    period: "Capaciti GQ IT Hub",
+    period: "CAPACITI GQ IT Hub",
     when: "Present · In progress",
     bullets: [
       "Developing and contributing to the full-stack architecture of the platform",
@@ -43,7 +43,7 @@ const roles = [
   {
     icon: Briefcase,
     title: "Student Developer",
-    period: "Academic & Independent Projects",
+    period: "Nelson Mandela University",
     when: "Feb 2022 – Dec 2025",
     bullets: [
       "Designed and developed web applications",
@@ -56,7 +56,7 @@ const roles = [
   {
     icon: BookOpen,
     title: "Academic Mentor",
-    period: "Peer Tutoring & Support",
+    period: "Nelson Mandela University",
     when: "Apr 2023 – Dec 2024",
     bullets: [
       "Assisted students with programming concepts",
