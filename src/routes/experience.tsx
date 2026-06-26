@@ -23,7 +23,7 @@ const roles = [
     period: "CAPACITI GQ IT Hub",
     when: "Present · In progress",
     bullets: [
-      "Developing and contributing to the full-stack architecture of the platform",
+      "Developing and contributing to the full-stack architecture of an AI-powered Ticket Classification Platform",
       "Designing the implementation of AI-driven ticket classification logic",
       "Building and maintaining features for ticket creation, tracking, and management",
       "Collaborating with team members in an Agile-style development environment",
@@ -90,10 +90,11 @@ function ExperiencePage() {
                   <span className="text-xs font-semibold uppercase tracking-wider text-accent">{r.when}</span>
                 </div>
                 <p className="mt-0.5 text-sm font-medium text-muted-foreground">{r.period}</p>
-                <ul className="mt-3 flex flex-wrap gap-2">
-                  {r.bullets.map((b) => (
-                    <li key={b} className="inline-flex items-center gap-2 rounded-lg bg-muted/60 px-3 py-1.5 text-sm text-muted-foreground">
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{b}
+                <ul className="mt-4 space-y-2.5 border-l-2 border-accent/30 pl-4">
+                  {r.bullets.map((b, idx) => (
+                    <li key={b} className="relative flex gap-3 text-sm leading-relaxed text-muted-foreground">
+                      <span className="font-mono text-xs font-semibold text-accent/80 tabular-nums">{String(idx + 1).padStart(2, "0")}</span>
+                      <span className="flex-1">{b}</span>
                     </li>
                   ))}
                 </ul>
