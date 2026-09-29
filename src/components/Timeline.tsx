@@ -104,7 +104,7 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
                           onLeft ? "md:border-l-0 md:border-r-2 md:pl-0 md:pr-4" : ""
                         }`}
                       >
-                        {entry.bullets.map((b) => (
+                        {entry.bullets.map((b, idx) => (
                           <li
                             key={b}
                             className={`flex gap-3 text-sm leading-relaxed text-muted-foreground ${
@@ -112,7 +112,7 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
                             }`}
                           >
                             <span className="shrink-0 font-mono text-xs font-semibold tabular-nums text-accent/80">
-                              {String(entry.bullets!.indexOf(b) + 1).padStart(2, "0")}
+                              {String(idx + 1).padStart(2, "0")}
                             </span>
                             <span className="flex-1">{b}</span>
                           </li>
