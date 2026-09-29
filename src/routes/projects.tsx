@@ -108,7 +108,7 @@ const allProjects: Project[] = [
     features: ["Destination browsing", "Curated tour listings", "Search & filtering", "Mobile-friendly layout"],
     outcomes: ["Practiced semantic HTML & modern CSS", "Built an intuitive travel browsing experience", "Improved front-end fundamentals"],
     liveUrl: "https://tourist-guide-s2vt.onrender.com",
-    githubUrl: null,
+    githubUrl: "https://github.com/s224055534/tourist-guide",
   },
   {
     title: "e-Plant Shopping System",
@@ -130,7 +130,7 @@ const allProjects: Project[] = [
     features: ["Appointment scheduling & calendar", "Patient records management", "Analytics & reporting views", "Role-based dashboards"],
     outcomes: ["Simplified clinic workflow management", "Improved visibility of patient data", "Reduced manual scheduling overhead"],
     liveUrl: "https://clinic-flow-1.onrender.com",
-    githubUrl: null,
+    githubUrl: "https://github.com/s224055534/clinic-flow",
   },
 ];
 
