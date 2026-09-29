@@ -4,14 +4,17 @@ import { ExternalLink, Github } from "lucide-react";
 import fridgeImg from "@/assets/fridge.png.asset.json";
 import pharmacyImg from "@/assets/pharmacy.png.asset.json";
 import aiImg from "@/assets/ai-ticket.png.asset.json";
+import tourImg from "@/assets/tour-guide.png";
+import ePlantImg from "@/assets/e-plant.png";
+import clinicImg from "@/assets/clinicflow.png";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
       { title: "Projects — Godidi Nande" },
-      { name: "description", content: "Selected full-stack and AI projects: Fridge Management, Pharmacy Management, and AI Ticket Classification." },
+      { name: "description", content: "Selected full-stack, front-end and AI projects: Fridge Management, Pharmacy Management, AI Ticket Classification, Tour Guide App, e-Plant Shopping System, and ClinicFlow Dashboard." },
       { property: "og:title", content: "Selected Projects — Godidi Nande" },
-      { property: "og:description", content: "Enterprise systems and AI-driven products built with ASP.NET, React, SQL Server, and modern ML tooling." },
+      { property: "og:description", content: "Enterprise systems, AI-driven products, and web apps built with ASP.NET, React, SQL Server, and modern ML tooling." },
       { property: "og:url", content: "https://nande-portfolio.lovable.app/projects" },
     ],
     links: [{ rel: "canonical", href: "https://nande-portfolio.lovable.app/projects" }],
@@ -24,6 +27,9 @@ export const Route = createFileRoute("/projects")({
             { "@type": "SoftwareApplication", name: "Fridge Management System", applicationCategory: "BusinessApplication", description: "Web-based system to manage customers, inventory, fault reporting, and servicing schedules for beverage manufacturers.", author: { "@type": "Person", name: "Godidi Nande" } },
             { "@type": "SoftwareApplication", name: "Pharmacy Management System", applicationCategory: "BusinessApplication", description: "System to manage pharmaceutical operations, inventory, medicine tracking, and customer transactions.", author: { "@type": "Person", name: "Godidi Nande" } },
             { "@type": "SoftwareApplication", name: "AI Ticket Classification Platform", applicationCategory: "BusinessApplication", description: "AI-powered ticket classification system that analyzes, categorizes, and routes support tickets automatically.", author: { "@type": "Person", name: "Godidi Nande" } },
+            { "@type": "WebApplication", name: "Tour Guide App", applicationCategory: "TravelApplication", description: "Travel guide web application that lets users discover destinations, browse curated tours, and explore tour locations.", author: { "@type": "Person", name: "Godidi Nande" } },
+            { "@type": "WebApplication", name: "e-Plant Shopping System", applicationCategory: "ECommerceApplication", description: "E-commerce shopping system for plants with product browsing, category filtering, and cart management.", author: { "@type": "Person", name: "Godidi Nande" } },
+            { "@type": "WebApplication", name: "ClinicFlow Dashboard", applicationCategory: "BusinessApplication", description: "Clinic management dashboard that streamlines appointments, patient records, and reporting.", author: { "@type": "Person", name: "Godidi Nande" } },
           ],
         }),
       },
@@ -66,6 +72,39 @@ const projects = [
     liveUrl: "https://persona-powered-biz.lovable.app",
     githubUrl: "https://github.com/s224055534/nande-portfolio",
   },
+  {
+    title: "Tour Guide App",
+    role: "Front-End Developer",
+    image: tourImg,
+    overview: "A travel guide web application that lets users discover destinations, browse curated tours, and explore tour locations through a clean, responsive interface.",
+    tech: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    features: ["Destination browsing", "Curated tour listings", "Search & filtering", "Mobile-friendly layout"],
+    outcomes: ["Practiced semantic HTML & modern CSS", "Built an intuitive travel browsing experience", "Improved front-end fundamentals"],
+    liveUrl: "https://tourist-guide-s2vt.onrender.com",
+    githubUrl: null,
+  },
+  {
+    title: "e-Plant Shopping System",
+    role: "Full-Stack Developer",
+    image: ePlantImg,
+    overview: "An e-commerce shopping system for plants, with product browsing, category filtering, cart management, and a smooth checkout flow.",
+    tech: ["React", "Vite", "JavaScript", "CSS"],
+    features: ["Product catalog & categories", "Shopping cart management", "Add-to-cart workflow", "Responsive product grid"],
+    outcomes: ["Strengthened React & component design skills", "Delivered a complete shopping experience", "Applied responsive e-commerce UI patterns"],
+    liveUrl: "https://s224055534.github.io/e-plantShopping",
+    githubUrl: "https://github.com/s224055534/e-plantShopping",
+  },
+  {
+    title: "ClinicFlow Dashboard",
+    role: "Full-Stack Developer",
+    image: clinicImg,
+    overview: "A clinic management dashboard that streamlines appointments, patient records, and reporting — giving staff a clear, real-time overview of clinic operations.",
+    tech: ["React", "TypeScript", "REST APIs", "Data Visualization"],
+    features: ["Appointment scheduling & calendar", "Patient records management", "Analytics & reporting views", "Role-based dashboards"],
+    outcomes: ["Simplified clinic workflow management", "Improved visibility of patient data", "Reduced manual scheduling overhead"],
+    liveUrl: "https://clinic-flow-1.onrender.com",
+    githubUrl: null,
+  },
 ];
 
 function ProjectsPage() {
@@ -75,7 +114,7 @@ function ProjectsPage() {
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-accent">Portfolio</p>
           <h1 className="mt-2 text-4xl font-bold text-foreground sm:text-5xl">Selected Projects</h1>
-          <p className="mt-4 max-w-2xl text-muted-foreground">A snapshot of enterprise systems and AI-driven products I've designed and built.</p>
+          <p className="mt-4 max-w-2xl text-muted-foreground">A snapshot of enterprise systems, AI-driven products, and web applications I've designed and built.</p>
         </div>
       </div>
 
