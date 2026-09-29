@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Layout";
+import { Timeline, type TimelineEntry } from "@/components/Timeline";
 import { GraduationCap, Award, Users } from "lucide-react";
 
 export const Route = createFileRoute("/education")({
@@ -16,11 +17,44 @@ export const Route = createFileRoute("/education")({
   component: EducationPage,
 });
 
-const timeline = [
-  { year: "Feb 2025 – Dec 2025", title: "Advanced Diploma in Information Technology", subtitle: "Software Development · Nelson Mandela University", desc: "Advanced study in enterprise software development, system design and emerging technologies." },
-  { year: "Feb 2022 – Dec 2024", title: "Diploma in Information Technology", subtitle: "Software Development · Nelson Mandela University", desc: "Built full-stack web applications, database-driven systems, and enterprise prototypes." },
-  { year: "Feb 2021 – Dec 2021", title: "Higher Certificate in Information Technology", subtitle: "User Support Services · Nelson Mandela University", desc: "Foundations of IT support, hardware, networks, and customer-focused problem solving." },
-  { year: "2020", title: "Matriculated — Grade 12 (Mathematics Excellence)", subtitle: "Port St Johns SSS · Achieved the 3rd highest Mathematics score in Grade 12", desc: "Selected by educators to tutor mathematical concepts to peers." },
+const entries: TimelineEntry[] = [
+  {
+    id: "advanced-diploma",
+    icon: GraduationCap,
+    eyebrow: "Higher Education",
+    title: "Advanced Diploma in Information Technology",
+    subtitle: "Software Development",
+    date: "Feb 2025 – Dec 2025",
+    description: "Advanced study in enterprise software development, system design and emerging technologies at Nelson Mandela University.",
+  },
+  {
+    id: "diploma",
+    icon: GraduationCap,
+    eyebrow: "Higher Education",
+    title: "Diploma in Information Technology",
+    subtitle: "Software Development",
+    date: "Feb 2022 – Dec 2024",
+    description: "Built full-stack web applications, database-driven systems, and enterprise prototypes at Nelson Mandela University.",
+  },
+  {
+    id: "higher-certificate",
+    icon: GraduationCap,
+    eyebrow: "Higher Education",
+    title: "Higher Certificate in Information Technology",
+    subtitle: "User Support Services",
+    date: "Feb 2021 – Dec 2021",
+    description: "Foundations of IT support, hardware, networks, and customer-focused problem solving at Nelson Mandela University.",
+  },
+  {
+    id: "matric",
+    icon: GraduationCap,
+    eyebrow: "Secondary Education",
+    title: "Matriculated — Grade 12 (Mathematics Excellence)",
+    subtitle: "Port St Johns SSS",
+    date: "2020",
+    badge: { icon: Award, label: "3rd highest Mathematics score in Grade 12" },
+    description: "Selected by educators to tutor mathematical concepts to peers.",
+  },
 ];
 
 const achievements = [
@@ -48,21 +82,7 @@ function EducationPage() {
       </div>
 
       <Section eyebrow="Timeline" title="Academic Timeline">
-        <ol className="relative space-y-6 border-l-2 border-border pl-8 sm:pl-10">
-          {timeline.map((t) => (
-            <li key={t.year} className="relative">
-              <span className="absolute -left-[42px] grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground shadow-elevated sm:-left-[50px]">
-                <GraduationCap className="h-4 w-4" />
-              </span>
-              <div className="rounded-2xl border border-border bg-card p-6 shadow-card">
-                <p className="text-xs font-semibold uppercase tracking-wider text-accent">{t.year}</p>
-                <h3 className="mt-1 text-lg font-semibold text-foreground">{t.title}</h3>
-                <p className="text-sm font-medium text-muted-foreground">{t.subtitle}</p>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t.desc}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <Timeline entries={entries} />
       </Section>
 
       <section className="bg-secondary/40">

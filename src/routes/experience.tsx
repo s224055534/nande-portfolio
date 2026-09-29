@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Layout";
+import { Timeline, type TimelineEntry } from "@/components/Timeline";
 import { Briefcase, BookOpen, Rocket, Code2 } from "lucide-react";
 
 export const Route = createFileRoute("/experience")({
@@ -66,6 +67,15 @@ const roles = [
   },
 ];
 
+const entries: TimelineEntry[] = roles.map((r) => ({
+  id: r.title,
+  icon: r.icon,
+  eyebrow: r.period,
+  title: r.title,
+  date: r.when,
+  bullets: r.bullets,
+}));
+
 function ExperiencePage() {
   return (
     <>
@@ -78,30 +88,7 @@ function ExperiencePage() {
 
       <Section>
         <h2 className="mb-8 text-2xl font-bold text-foreground sm:text-3xl">Timeline</h2>
-        <ol className="relative ml-3 border-l-2 border-border sm:ml-4">
-          {roles.map((r, i) => (
-            <li key={r.title} className={`relative pl-8 sm:pl-10 ${i === roles.length - 1 ? "" : "pb-10"}`}>
-              <span className="absolute -left-[13px] sm:-left-[15px] top-1 grid h-7 w-7 sm:h-8 sm:w-8 place-items-center rounded-full bg-gradient-hero text-primary-foreground shadow-elevated ring-4 ring-background">
-                <r.icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-              </span>
-              <article className="rounded-2xl border border-border bg-card p-5 shadow-card">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-                  <h3 className="text-lg font-semibold text-foreground">{r.title}</h3>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-accent">{r.when}</span>
-                </div>
-                <p className="mt-0.5 text-sm font-medium text-muted-foreground">{r.period}</p>
-                <ul className="mt-4 space-y-2.5 border-l-2 border-accent/30 pl-4">
-                  {r.bullets.map((b, idx) => (
-                    <li key={b} className="relative flex gap-3 text-sm leading-relaxed text-muted-foreground">
-                      <span className="font-mono text-xs font-semibold text-accent/80 tabular-nums">{String(idx + 1).padStart(2, "0")}</span>
-                      <span className="flex-1">{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            </li>
-          ))}
-        </ol>
+        <Timeline entries={entries} />
       </Section>
     </>
   );

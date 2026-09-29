@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- All timeline surfaces (Education, Experience) render through the shared `src/components/Timeline.tsx` component rather than page-local markup, so the alternating-card structure stays identical if a new timeline is added.
