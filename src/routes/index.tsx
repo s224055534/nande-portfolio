@@ -26,16 +26,17 @@ function Home() {
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 20% 20%, white 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
         <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:px-8 lg:py-18">
           <div>
-            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary-foreground/90">
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-hero-foreground/90">
               Available for opportunities
             </p>
             <h1 className="font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
               Godidi Nande
             </h1>
-            <p className="mt-4 text-lg font-medium text-primary-foreground/90 sm:text-xl">
+            <p className="mt-4 text-lg font-medium text-hero-foreground/90 sm:text-xl">
               Full-Stack Developer · Software Developer · IT Professional
             </p>
-            <p className="mt-6 max-w-xl text-base text-primary-foreground/80 sm:text-lg">
+            <p className="mt-6 max-w-xl text-base text-hero-foreground/80 sm:text-lg">
+
               Transforming ideas into scalable digital solutions through technology and innovation.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
