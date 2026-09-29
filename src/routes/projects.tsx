@@ -12,9 +12,9 @@ export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
       { title: "Projects — Godidi Nande" },
-      { name: "description", content: "Selected full-stack and AI projects: Fridge Management, Pharmacy Management, and AI Ticket Classification." },
+      { name: "description", content: "Selected full-stack, front-end and AI projects: Fridge Management, Pharmacy Management, AI Ticket Classification, Tour Guide App, e-Plant Shopping System, and ClinicFlow Dashboard." },
       { property: "og:title", content: "Selected Projects — Godidi Nande" },
-      { property: "og:description", content: "Enterprise systems and AI-driven products built with ASP.NET, React, SQL Server, and modern ML tooling." },
+      { property: "og:description", content: "Enterprise systems, AI-driven products, and web apps built with ASP.NET, React, SQL Server, and modern ML tooling." },
       { property: "og:url", content: "https://nande-portfolio.lovable.app/projects" },
     ],
     links: [{ rel: "canonical", href: "https://nande-portfolio.lovable.app/projects" }],
