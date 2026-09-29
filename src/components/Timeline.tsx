@@ -48,7 +48,7 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
                     : "left-1/2 ml-[18px] hidden w-[30px] md:block"
                 }`}
               />
-              <span aria-hidden className="absolute left-[34px] top-[21px] h-0.5 w-3 bg-accent/40 md:hidden" />
+              <span aria-hidden className="absolute left-[34px] top-[21px] h-0.5 w-3.5 bg-accent/40 md:hidden" />
 
               <span className={DOT}>
                 {Icon && <Icon className="h-4 w-4" />}
