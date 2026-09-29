@@ -107,7 +107,7 @@ export function Layout({ children }: { children: ReactNode }) {
             <ul className="mt-4 grid grid-cols-2 gap-y-2 text-sm">
               {nav.map((n) => (
                 <li key={n.to}>
-                  <Link to={n.to} className="text-footer-foreground/80 hover:text-primary-foreground">{n.label}</Link>
+                  <Link to={n.to} className="text-footer-foreground/80 hover:text-footer-foreground">{n.label}</Link>
                 </li>
               ))}
             </ul>
@@ -115,9 +115,9 @@ export function Layout({ children }: { children: ReactNode }) {
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-footer-foreground/80">Contact</h4>
             <ul className="mt-4 space-y-2 text-sm text-footer-foreground/80">
-              <li><a href="mailto:ppngodidi322@gmail.com" className="hover:text-primary-foreground">ppngodidi322@gmail.com</a></li>
-              <li><a href="https://github.com/s224055534" target="_blank" rel="noreferrer" className="hover:text-primary-foreground">github.com/s224055534</a></li>
-              <li><a href="https://linkedin.com/in/godidi-nande" target="_blank" rel="noreferrer" className="hover:text-primary-foreground">linkedin.com/in/godidi-nande</a></li>
+              <li><a href="mailto:ppngodidi322@gmail.com" className="hover:text-footer-foreground">ppngodidi322@gmail.com</a></li>
+              <li><a href="https://github.com/s224055534" target="_blank" rel="noreferrer" className="hover:text-footer-foreground">github.com/s224055534</a></li>
+              <li><a href="https://linkedin.com/in/godidi-nande" target="_blank" rel="noreferrer" className="hover:text-footer-foreground">linkedin.com/in/godidi-nande</a></li>
             </ul>
           </div>
         </div>
