@@ -65,7 +65,7 @@ type Project = {
   githubUrl: string | null;
 };
 
-const projects: Project[] = [
+const allProjects: Project[] = [
   {
     title: "Fridge Management System",
     role: "Full-Stack Developer",
@@ -133,6 +133,11 @@ const projects: Project[] = [
     githubUrl: null,
   },
 ];
+
+// Cards are listed in ascending alphabetical order by title (A → Z).
+const projects = [...allProjects].sort((a, b) =>
+  a.title.localeCompare(b.title, undefined, { sensitivity: "base", numeric: true }),
+);
 
 function TechChips({ items, limit }: { items: string[]; limit?: number }) {
   const shown = limit ? items.slice(0, limit) : items;
