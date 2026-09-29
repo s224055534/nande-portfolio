@@ -1,6 +1,21 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Layout";
-import { ExternalLink, Github } from "lucide-react";
+import {
+  ArrowUpRight,
+  Check,
+  ExternalLink,
+  Github,
+  Layers,
+  TrendingUp,
+} from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import fridgeImg from "@/assets/fridge.png.asset.json";
 import pharmacyImg from "@/assets/pharmacy.png.asset.json";
 import aiImg from "@/assets/ai-ticket.png.asset.json";
@@ -38,7 +53,19 @@ export const Route = createFileRoute("/projects")({
   component: ProjectsPage,
 });
 
-const projects = [
+type Project = {
+  title: string;
+  role: string;
+  image: string;
+  overview: string;
+  tech: string[];
+  features: string[];
+  outcomes: string[];
+  liveUrl: string | null;
+  githubUrl: string | null;
+};
+
+const projects: Project[] = [
   {
     title: "Fridge Management System",
     role: "Full-Stack Developer",
@@ -107,7 +134,213 @@ const projects = [
   },
 ];
 
+function TechChips({ items, limit }: { items: string[]; limit?: number }) {
+  const shown = limit ? items.slice(0, limit) : items;
+  const rest = limit ? items.length - shown.length : 0;
+  return (
+    <div className="flex flex-wrap gap-1.5">
+      {shown.map((t) => (
+        <span
+          key={t}
+          className="rounded-md bg-secondary px-2 py-0.5 text-[11px] font-medium text-secondary-foreground"
+        >
+          {t}
+        </span>
+      ))}
+      {rest > 0 && (
+        <span className="rounded-md border border-border px-2 py-0.5 text-[11px] font-medium text-muted-foreground">
+          +{rest}
+        </span>
+      )}
+    </div>
+  );
+}
+
+function ProjectCard({
+  project,
+  index,
+  onOpen,
+}: {
+  project: Project;
+  index: number;
+  onOpen: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onOpen}
+      aria-label={`View details for ${project.title}`}
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card text-left shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+    >
+      {/* Thumbnail */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-border bg-muted/70">
+        <img
+          src={project.image}
+          alt={`${project.title} preview`}
+          loading="lazy"
+          className="h-full w-full object-contain p-3 transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+        />
+        <span className="absolute left-3 top-3 rounded-full bg-primary/90 px-2.5 py-1 text-[11px] font-semibold tabular-nums text-primary-foreground shadow-sm">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <span className="pointer-events-none absolute inset-x-0 bottom-0 flex translate-y-full items-center justify-center bg-gradient-to-t from-primary/95 to-primary/70 py-2.5 text-xs font-semibold text-primary-foreground transition-transform duration-300 group-hover:translate-y-0">
+          View project details
+        </span>
+      </div>
+
+      {/* Body */}
+      <div className="flex flex-1 flex-col p-5">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-accent">
+          {project.role}
+        </p>
+        <h2 className="mt-1.5 text-lg font-bold leading-snug text-foreground">
+          {project.title}
+        </h2>
+        <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+          {project.overview}
+        </p>
+
+        <div className="mt-4 flex-1" />
+        <TechChips items={project.tech} limit={3} />
+
+        <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
+          <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground transition-colors group-hover:text-accent">
+            View project
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </span>
+          <span className="flex items-center gap-2 text-muted-foreground">
+            {project.liveUrl && (
+              <span className="inline-flex items-center gap-1 text-[11px] font-medium">
+                <ExternalLink className="h-3.5 w-3.5" /> Demo
+              </span>
+            )}
+            {project.githubUrl && <Github className="h-4 w-4" />}
+          </span>
+        </div>
+      </div>
+    </button>
+  );
+}
+
+function ProjectDialog({
+  project,
+  open,
+  onOpenChange,
+}: {
+  project: Project | null;
+  open: boolean;
+  onOpenChange: (next: boolean) => void;
+}) {
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="max-h-[92vh] w-[calc(100%-1.5rem)] max-w-5xl gap-0 overflow-hidden p-0 sm:rounded-2xl">
+        {project && (
+          <>
+            <DialogHeader className="border-b border-border px-5 py-4 pr-12 text-left sm:px-7 sm:py-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+                {project.role}
+              </p>
+              <DialogTitle className="mt-1 text-xl font-bold sm:text-2xl">
+                {project.title}
+              </DialogTitle>
+              <DialogDescription className="sr-only">
+                {project.overview}
+              </DialogDescription>
+            </DialogHeader>
+
+            <div className="max-h-[calc(92vh-6.5rem)] overflow-y-auto">
+              <div className="grid lg:grid-cols-[1.1fr_1fr]">
+                {/* Full screenshot */}
+                <div className="border-b border-border bg-muted/60 p-4 sm:p-6 lg:border-b-0 lg:border-r">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} full preview`}
+                    className="mx-auto h-auto max-h-[42vh] w-full object-contain lg:max-h-[62vh]"
+                  />
+                </div>
+
+                {/* Details */}
+                <div className="flex flex-col gap-6 p-5 sm:p-7">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {project.overview}
+                  </p>
+
+                  <div>
+                    <h3 className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                      <Layers className="h-3.5 w-3.5 text-accent" /> Tech Stack
+                    </h3>
+                    <div className="mt-2.5">
+                      <TechChips items={project.tech} />
+                    </div>
+                  </div>
+
+                  <div className="grid gap-6 sm:grid-cols-2">
+                    <div>
+                      <h3 className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                        <Check className="h-3.5 w-3.5 text-accent" /> Key Features
+                      </h3>
+                      <ul className="mt-2.5 space-y-2">
+                        {project.features.map((f) => (
+                          <li key={f} className="flex gap-2 text-sm leading-snug text-muted-foreground">
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                        <TrendingUp className="h-3.5 w-3.5 text-accent" /> Outcomes
+                      </h3>
+                      <ul className="mt-2.5 space-y-2">
+                        {project.outcomes.map((o) => (
+                          <li key={o} className="flex gap-2 text-sm leading-snug text-muted-foreground">
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                            {o}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {(project.liveUrl || project.githubUrl) && (
+                    <div className="mt-auto flex flex-wrap gap-3 border-t border-border pt-5">
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                        >
+                          <ExternalLink className="h-4 w-4" /> Live Demo
+                        </a>
+                      )}
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
+                        >
+                          <Github className="h-4 w-4" /> GitHub
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 function ProjectsPage() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const active = activeIndex === null ? null : projects[activeIndex];
+
   return (
     <>
       <div className="bg-gradient-subtle border-b border-border">
@@ -119,62 +352,25 @@ function ProjectsPage() {
       </div>
 
       <Section>
-        <div className="grid gap-6">
-          {projects.map((p) => (
-            <article key={p.title} className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
-              <div className="grid lg:grid-cols-[1fr_1.4fr]">
-                <div className="flex w-full items-center justify-center overflow-hidden bg-muted p-4 lg:p-6">
-                  <img src={p.image} alt={`${p.title} preview`} className="h-full max-h-[420px] w-full object-contain" loading="lazy" />
-                </div>
-                <div className="p-5 sm:p-6">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-accent">{p.role}</p>
-                  <h2 className="mt-1 text-2xl font-bold text-foreground">{p.title}</h2>
-                  <p className="mt-3 leading-relaxed text-muted-foreground">{p.overview}</p>
-
-                  <div className="mt-5">
-                    <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Technologies</h3>
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      {p.tech.map((t) => (
-                        <span key={t} className="rounded-md bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground">{t}</span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mt-5 grid gap-5 sm:grid-cols-2">
-                    <div>
-                      <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Key Features</h3>
-                      <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                        {p.features.map((f) => <li key={f} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{f}</li>)}
-                      </ul>
-                    </div>
-                    <div>
-                      <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Outcomes</h3>
-                      <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                        {p.outcomes.map((o) => <li key={o} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{o}</li>)}
-                      </ul>
-                    </div>
-                  </div>
-
-                  {(p.liveUrl || p.githubUrl) && (
-                    <div className="mt-6 flex flex-wrap gap-3">
-                      {p.liveUrl && (
-                        <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground hover:bg-secondary">
-                          <ExternalLink className="h-4 w-4" /> Live Demo
-                        </a>
-                      )}
-                      {p.githubUrl && (
-                        <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground hover:bg-secondary">
-                          <Github className="h-4 w-4" /> GitHub
-                        </a>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </article>
+        <div className="grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((p, i) => (
+            <ProjectCard
+              key={p.title}
+              project={p}
+              index={i}
+              onOpen={() => setActiveIndex(i)}
+            />
           ))}
         </div>
       </Section>
+
+      <ProjectDialog
+        project={active}
+        open={activeIndex !== null}
+        onOpenChange={(next) => {
+          if (!next) setActiveIndex(null);
+        }}
+      />
     </>
   );
 }
